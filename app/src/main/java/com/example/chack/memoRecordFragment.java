@@ -80,7 +80,7 @@ public class memoRecordFragment extends Fragment {
         for(int i = 0; i < 10; i++)
         {
             MemoItemRecord item = new MemoItemRecord();
-            item.memo = "모르는 건 죄가 아닌데 기다리지 못하는 건 죄가 되기도 한다고";
+            item.memo = "모르는 건 죄가 아닌데 기다리지 못하는 건 죄가 되기도 한다고!";
             item.page = 23;
             item.bookName = "구의 증명";
 

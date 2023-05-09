@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="writesubject">
+        <item>주제선택</item>
+        <item>독서모임</item>
+        <item>도서추천</item>
+        <item>문장공유</item>
+    </string-array>
+</resources>

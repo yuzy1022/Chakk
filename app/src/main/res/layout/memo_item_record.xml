@@ -1,0 +1,71 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="6dp"
+        android:background="@drawable/memo_white_background_layout"
+        android:id="@+id/layout">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="7dp"
+            android:text="\n" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:textSize="20dp"
+                android:textColor="@color/book_name_color"
+                android:text="&quot;" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="270dp"
+                android:textSize="20dp"
+                android:textColor="@color/book_name_color"
+                android:text="&quot;" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:textSize="17dp"
+            android:fontFamily="@font/calibrib"
+            android:gravity="center_horizontal"
+            android:textColor="@color/book_name_color"
+            android:text="모르는 건 죄가 아닌데 기다리지 못하는 건 죄가 되기도 한다고"
+            android:id="@+id/memo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="270dp"
+            android:textSize="10dp"
+            android:text="\n\n" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:fontFamily="@font/calibrib"
+            android:gravity="right"
+            android:textColor="@color/book_data_color"
+            android:text="-구의 증명, 23페이지-"
+            android:id="@+id/bookName"/>
+    </LinearLayout>
+</LinearLayout>

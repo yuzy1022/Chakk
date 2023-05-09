@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".recordFragment">
+
+
+    <LinearLayout
+        android:id="@+id/select"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="left"
+        android:orientation="vertical"
+        android:weightSum="5"
+        tools:ignore="MissingConstraints">
+        <!-- app:layout_constraintHeight_percent="0.08" -->
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:tabIndicatorColor="@color/selected_color"
+            app:tabTextColor="@color/main_color"
+            app:tabSelectedTextColor="@color/selected_color"
+            app:tabGravity="fill"
+            app:tabTextAppearance="@style/tab_text">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/past"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="읽은 책" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/current"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="읽고 있는 책" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/future"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="읽고 싶은 책" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/memo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="내 기록" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

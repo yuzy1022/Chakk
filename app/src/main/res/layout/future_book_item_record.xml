@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/book_item_background_layout"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginBottom="10dp">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="137dp"
+        android:src="@drawable/img_6"
+        android:id="@+id/BookImgView"
+        android:layout_marginTop="2dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginLeft="110dp"
+        android:orientation="vertical"
+        >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="메리골드 마음 세탁소"
+            android:textSize="20dp"
+            android:fontFamily="@font/calibrib"
+            android:textColor="@color/book_name_color"
+            android:id="@+id/bookName"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:text="윤정은"
+            android:textSize="15dp"
+            android:fontFamily="@font/calibrib"
+            android:textColor="@color/book_data_color"
+            android:id="@+id/bookWriter"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:text="읽을 날짜"
+                android:textSize="15dp"
+                android:fontFamily="@font/calibrib"
+                android:textColor="@color/book_info_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:text="2022.04.30"
+                android:textSize="15dp"
+                android:fontFamily="@font/calibrib"
+                android:textColor="@color/book_data_color"
+                android:id="@+id/readDate"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:text="남은 날짜"
+                android:textSize="15dp"
+                android:fontFamily="@font/calibrib"
+                android:textColor="@color/book_info_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="10dp"
+                android:text="5"
+                android:textSize="20dp"
+                android:fontFamily="@font/calibrib"
+                android:textColor="@color/book_info_color"
+                android:id="@+id/remainDay"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="10dp"
+                android:text="일"
+                android:textSize="15dp"
+                android:fontFamily="@font/calibrib"
+                android:textColor="@color/book_data_color" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:text="내 평점"
+                android:textSize="15dp"
+                android:fontFamily="@font/calibrib"
+                android:textColor="@color/book_info_color" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:stepSize="0.5"
+                android:numStars="5"
+                android:progressTint="@color/book_rating_color"
+                android:rating="5"
+                android:id="@+id/rating"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

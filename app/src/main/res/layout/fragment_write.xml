@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    tools:context=".writeFragment">
+    <!--새 게시물 상단-->
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="23dp"
+            android:layout_height="20.333dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16.667dp"
+            android:background="#FFFFFF"
+            android:padding="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/writeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/writename"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <!--등록 버튼-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/wrtieSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/radiusbtn2"
+            android:text="@string/popupsubmit"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear1">
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5px"
+            android:layout_marginTop="5px"
+            android:backgroundTint="#302020"
+            android:paddingRight="5dp"
+            android:spinnerMode="dropdown" />
+
+        <EditText
+            android:id="@+id/contentsEdit"
+            android:layout_width="match_parent"
+            android:layout_height="600px"
+            android:layout_marginTop="12px"
+            android:gravity="top"
+            android:hint="@string/contentHint" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bookChoiceBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="100px"
+            android:layout_marginLeft="5px"
+            android:background="@drawable/radiusbtn"
+            android:text="@string/bookchoice"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:id="@+id/tagLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/tagBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="100px"
+                android:layout_marginLeft="5px"
+                android:background="@drawable/radiusbtn"
+                android:text="@string/tagchoice"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/tagText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/tagText"/>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/placeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="100px"
+            android:layout_marginLeft="5px"
+            android:background="@drawable/radiusbtn"
+            android:text="@string/placechoice"
+            android:textSize="15sp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

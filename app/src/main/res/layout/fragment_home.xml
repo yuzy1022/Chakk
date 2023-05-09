@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="34dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="30dp" />
+
+    <!--메인화면에 리싸이클러 뷰와 서가 채우기 버튼이 들어갈 부분 지정 -->
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+        app:layout_constraintLeft_toLeftOf="parent">
+        <!--리싸이클러 뷰와 리싸이클러 뷰가 표시한 내용 표시 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@string/fragPresent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/currentRV"
+                android:layout_width="match_parent"
+                android:layout_height="471.5px"/>
+        </LinearLayout>
+
+        <!--리싸이클러 뷰와 리싸이클러 뷰가 표시한 내용 표시 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@string/fragPast" />
+            <!-- 리싸이클러 뷰 삽입 예정
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/read"
+                android:layout_width="match_parent"
+                android:layout_height="471.5px"
+                />-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pastRV"
+                android:layout_width="match_parent"
+                android:layout_height="471.5px"/>
+        </LinearLayout>
+        <!--리싸이클러 뷰와 리싸이클러 뷰가 표시한 내용 표시 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border3"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@string/fragFut" />
+            <!-- 리싸이클러 뷰 삽입 예정
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/willread"
+                android:layout_width="match_parent"
+                android:layout_height="471.5px"
+                />-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/futureRV"
+                android:layout_width="match_parent"
+                android:layout_height="471.5px"/>
+        </LinearLayout>
+        <!--리싸이클러 뷰와 리싸이클러 뷰가 표시한 내용 표시 -->
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:id="@+id/bookAdd"
+        android:text="@string/bookAdd"
+        android:background="@drawable/radiusbtn"
+
+        app:layout_constraintBottom_toBottomOf="@+id/guidelineBottom"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

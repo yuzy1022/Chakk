@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.chack" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/white</item> <!--배경색-->
+        <item name="colorPrimaryVariant">@color/main_color</item> <!--시계 나오는 부분 색상-->
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="toolbarStyle">@style/CustomToolBar</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/sub_color</item>
+        <item name="colorSecondaryVariant">@color/sub_color</item>
+        <item name="colorOnSecondary">@color/sub_color</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">책크</string>
+
+    <!--fragment_home String-->
+    <string name="bookAdd">서가 채우기</string>
+    <string name="fragHome">홈</string>
+    <string name="fragPresent">현재</string>
+    <string name="fragPast">과거</string>
+    <string name="fragFut">미래</string>
+
+    <!--main_serach string-->
+    <string name="msHint"> 도서 검색하기</string>
+
+    <!--Manifest의 actionBar 이름-->
+    <string name="actionHomeName">홈</string>
+    <string name="actionSnsName">도서 SNS</string>
+    <string name="actionRecordName">내 서재</string>
+    <string name="actionProfileName">프로필</string>
+
+    <!--popupaddbook의 string-->
+    <string name="popupbook">도서정보</string>
+    <string name="popupsubmit">등록</string>
+    <string name="popupcancle">취소</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--WRITE의 STRING-->
+    <string name="writename">새 게시물</string>
+    <string name="writesub">주제</string>
+    <string name="contentHint"> 내용을 입력하세요</string>
+    <string name="bookchoice">책 선택</string>
+    <string name="tagchoice">태그</string>
+    <string name="placechoice">장소</string>
+    <string name="tagText"> </string>
+</resources>
+

@@ -104,7 +104,7 @@ public class writeFragment extends Fragment {
         placeText = v.findViewById(R.id.placeBtn);
         etAdress = v.findViewById(R.id.et_address);
 
-        String[] list = {"주제선택", "독서모임", "도서추천", "문장공유"};
+        String[] list = {"독서모임", "도서추천", "문장공유"};
 
         ArrayAdapter spn_adapter = ArrayAdapter.createFromResource(getActivity(), R.array.writesubject, android.R.layout.simple_spinner_dropdown_item);
 
@@ -134,12 +134,9 @@ public class writeFragment extends Fragment {
             public void onClick(View v) {
                 //주소 검색 웹뷰 화면으로 이동
                 Intent intent = new Intent(getActivity(), AddressActivity.class);
-
                 getAddressResult.launch(intent);
             }
         });
-
-
         // Inflate the layout for this fragment
         return v;
     }

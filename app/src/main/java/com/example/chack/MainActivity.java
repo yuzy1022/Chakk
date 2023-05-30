@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         //페이지마다 액션바 이름 바꾸기
     }
+    //asd
     //test
 
     private void init() {

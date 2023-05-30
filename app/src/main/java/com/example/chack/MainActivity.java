@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.tab_home);
 
         //페이지마다 액션바 이름 바꾸기
+
+
     }
 
     private void init() {
@@ -77,9 +79,9 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new homeFragment()).commitAllowingStateLoss();
         } else if (index == 1) {//1일 경우 서가검색으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new addBookFragment()).commitAllowingStateLoss();
-        } else if (index == 2) {//1일 경우 서가검색으로
+        } else if (index == 2) {//2일 경우 SNS검색으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new snsFragment()).commitAllowingStateLoss();
-        } else if (index == 3) {//1일 경우 서가검색으로
+        } else if (index == 3) {//3일 경우 SNS 글 작성으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new writeFragment()).commitAllowingStateLoss();
         }
     }

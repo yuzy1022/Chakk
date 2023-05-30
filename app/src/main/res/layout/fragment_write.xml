@@ -80,12 +80,14 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bookChoiceBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="90dp"
             android:layout_height="100px"
             android:layout_marginLeft="5px"
             android:background="@drawable/radiusbtn"
             android:text="@string/bookchoice"
-            android:textSize="15sp" />
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:gravity="center" />
 
         <LinearLayout
             android:id="@+id/tagLinear"
@@ -95,29 +97,62 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/tagBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="90dp"
                 android:layout_height="100px"
                 android:layout_marginLeft="5px"
                 android:background="@drawable/radiusbtn"
                 android:text="@string/tagchoice"
-                android:textSize="15sp" />
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:gravity="center" />
 
             <TextView
-                android:layout_gravity="center"
                 android:id="@+id/tagText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="@string/tagText"/>
+                android:layout_gravity="center"
+                android:text="@string/tagText"
+                android:textSize="17sp" />
         </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/placeBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="100px"
-            android:layout_marginLeft="5px"
-            android:background="@drawable/radiusbtn"
-            android:text="@string/placechoice"
-            android:textSize="15sp" />
+        <LinearLayout
+            android:id="@+id/place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/placeBtn"
+                android:layout_width="90dp"
+                android:layout_height="100px"
+                android:layout_marginLeft="5px"
+                android:background="@drawable/radiusbtn"
+                android:text="@string/placechoice"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation = "vertical">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="주소를 입력해주세요"
+                    android:id="@+id/et_address"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--
+        <RelativeLayout
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+-->

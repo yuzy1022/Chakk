@@ -1,9 +1,16 @@
 package com.example.chack;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.ButtonBarLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -11,9 +18,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,7 +36,10 @@ public class writeFragment extends Fragment {
     View v;
     Spinner spn;
     ImageButton backBtn;
-    TextView tagText;
+    TextView tagText, placeText;
+
+    private EditText etAdress;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -87,8 +101,10 @@ public class writeFragment extends Fragment {
         spn = v.findViewById(R.id.spinnerSub);
         backBtn = v.findViewById(R.id.back_button);
         tagText = v.findViewById(R.id.tagText);
+        placeText = v.findViewById(R.id.placeBtn);
+        etAdress = v.findViewById(R.id.et_address);
 
-        String[] list = {"주제선택","독서모임", "도서추천","문장공유"};
+        String[] list = {"주제선택", "독서모임", "도서추천", "문장공유"};
 
         ArrayAdapter spn_adapter = ArrayAdapter.createFromResource(getActivity(), R.array.writesubject, android.R.layout.simple_spinner_dropdown_item);
 
@@ -98,7 +114,7 @@ public class writeFragment extends Fragment {
         spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                tagText.setText(" #"+spn.getSelectedItem().toString());
+                tagText.setText(" #" + spn.getSelectedItem().toString());
             }
 
             @Override
@@ -107,10 +123,37 @@ public class writeFragment extends Fragment {
             }
         });
 
-        backBtn.setOnClickListener(v->{activity.onFragmentChange(2);});
+        backBtn.setOnClickListener(v -> {
+            activity.onFragmentChange(2);
+        });
+
+        //block touch
+        etAdress.setFocusable((false));
+        etAdress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //주소 검색 웹뷰 화면으로 이동
+                Intent intent = new Intent(getActivity(), AddressActivity.class);
+
+                getAddressResult.launch(intent);
+            }
+        });
 
 
         // Inflate the layout for this fragment
         return v;
     }
+
+    private final ActivityResultLauncher<Intent> getAddressResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result-> {
+                //AddressActivity에서 결과값이 이곳으로 전달 됨 (setResult로)
+                if(result.getResultCode() == RESULT_OK){
+                    if(result.getData() != null){
+                        String data = result.getData().getStringExtra("data");
+                        etAdress.setText(data);
+                    }
+                }
+            }
+    );
 }

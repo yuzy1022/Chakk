@@ -30,11 +30,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    //asd
+    //test
 
     private void init() {
         frame = findViewById(R.id.frame);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
     }
+
+    //추가
 
     private void SettingListener() {
         bottomNavigationView.setOnItemSelectedListener(new TabSelectedLister());

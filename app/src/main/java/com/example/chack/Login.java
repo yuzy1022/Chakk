@@ -3,6 +3,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
 
 import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 
 public class Login extends AppCompatActivity {
@@ -59,6 +61,14 @@ public class Login extends AppCompatActivity {
             @Override
             public Unit invoke(User user, Throwable throwable) {
                 if (user != null) {
+                    // 유저 정보 가져오기
+                    String nickname = user.getKakaoAccount().getProfile().getNickname();
+                    String email = user.getKakaoAccount().getEmail();
+                    String profileImageUrl = user.getKakaoAccount().getProfile().getProfileImageUrl();
+                    // 로그에 출력
+                    Log.d(TAG, "Nickname: " + nickname);
+                    Log.d(TAG, "Email: " + email);
+                    Log.d(TAG, "Profile Image URL: " + profileImageUrl);
                     // 이미 로그인된 상태
                     Toast.makeText(Login.this, "이미 로그인되었습니다.", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Login.this, MainActivity.class);

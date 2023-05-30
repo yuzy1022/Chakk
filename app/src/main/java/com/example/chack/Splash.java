@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // 스플래쉬(시작,로딩화면,권한허용)
+// 권한획득부분은 구현o 첫시작화면(아이콘뜨는거?는 아이콘이 없어서 아직 구현x)
 public class Splash extends AppCompatActivity {
 
 
@@ -57,7 +58,7 @@ public class Splash extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        }, 2000);
+        }, 3000); // 3초 후 메인액티비티 실행
 
     }
 

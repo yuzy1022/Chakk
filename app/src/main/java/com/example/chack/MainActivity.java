@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
     }
 
+
     private void SettingListener() {
         bottomNavigationView.setOnItemSelectedListener(new TabSelectedLister());
     }
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             }
+
             return false;
         }
     }
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.actionbar_actions, menu);
+
         return true;
     }
 }

@@ -31,7 +31,7 @@ public class addBookFragment extends Fragment {
     }
     AutoCompleteTextView auto;//자동완성 텍스트뷰
     ImageButton search_button,back_button;//검색버튼,뒤로가기 버튼
-    ImageView bookimage;//도서 이미지
+    ImageView bookimage,barcode_button;//도서 이미지
     TextView bookname1, bookauthor1,bookinformation1;
     String select;
     RatingBar bookrating;
@@ -105,8 +105,19 @@ public class addBookFragment extends Fragment {
         bookinformation1=view.findViewById(R.id.bookinformation1);
         bookrating = view.findViewById(R.id.bookrating);
         bookplus = view.findViewById(R.id.bookplus);
+        barcode_button = view.findViewById(R.id.barcode_button);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_dropdown_item_1line,items);
         auto.setAdapter(adapter);
+
+        //바코드 버튼 클릭 시 이벤트
+        barcode_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),BarcodeScan.class); //fragment라서 activity intent와는 다른 방식
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);         // 프래그먼트 > 액티비티 화면전환 성공
+                startActivity(intent);
+            }
+        });
         //뒤로가기 버튼 클릭 시 이벤트
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override

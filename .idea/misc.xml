@@ -3,13 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Shj/git/Chakk/app/src/main/res/layout/activity_main.xml" value="0.34375" />
-        <entry key="..\:/Shj/git/Chakk/app/src/main/res/layout/fragment_addbook.xml" value="0.36614583333333334" />
+        <entry key="..\:/Shj/git/Chakk/app/src/main/res/drawable/button_background.xml" value="0.177" />
         <entry key="..\:/Shj/git/Chakk/app/src/main/res/layout/fragment_current_record.xml" value="0.32256410256410256" />
-        <entry key="..\:/Shj/git/Chakk/app/src/main/res/layout/fragment_future_addbook.xml" value="0.36614583333333334" />
-        <entry key="..\:/Shj/git/Chakk/app/src/main/res/layout/fragment_profile.xml" value="0.1875" />
+        <entry key="..\:/Shj/git/Chakk/app/src/main/res/layout/fragment_profile.xml" value="0.2851851851851852" />
         <entry key="..\:/Shj/git/Chakk/app/src/main/res/layout/login.xml" value="0.3145833333333333" />
-        <entry key="..\:/Shj/git/Chakk/app/src/main/res/menu/actionbar_actions.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/nnayu/Desktop/0422/chack/app/src/main/res/font/font.xml" value="0.2838541666666667" />
         <entry key="..\:/Users/nnayu/Desktop/0422/chack/app/src/main/res/layout/book_item_main.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/nnayu/Desktop/0422/chack/app/src/main/res/layout/fragment_addbook.xml" value="0.25364583333333335" />

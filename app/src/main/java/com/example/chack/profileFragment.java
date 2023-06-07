@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.AlertDialog;
@@ -57,11 +59,81 @@ public class profileFragment extends Fragment {
 
         TextView logoutButton = view.findViewById(R.id.logOut);
         TextView accountRemove = view.findViewById(R.id.accountRemove);
+        TextView announcement = view.findViewById(R.id.announcement);
+        TextView appInfo = view.findViewById(R.id.appInfo);
+        announcement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 팝업 창을 띄웁니다.
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
+                builder.setTitle("공지사항").setMessage("이 부분에 공지사항 내용을 입력하세요.")
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 확인 버튼을 누를 경우 아무 동작 없이 팝업 닫기
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
+
+                // 팝업 창 스타일을 수정합니다.
+                AlertDialog alertDialog = builder.create();
+                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialog) {
+                        // 확인 버튼에 스타일 적용
+                        Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+                        positiveButton.setTextColor(getResources().getColor(R.color.sub_color));
+
+                        // 팝업 창 배경색 변경
+                        Window window = alertDialog.getWindow();
+                        if (window != null) {
+                            window.setBackgroundDrawableResource(Integer.parseInt("#FFFFFF"));
+                        }
+                    }
+                });
+            }
+        });
+
+        appInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 팝업 창을 띄웁니다.
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
+                builder.setTitle("앱 정보").setMessage("이 부분에 앱 정보를 입력하세요.")
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 확인 버튼을 누를 경우 아무 동작 없이 팝업 닫기
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
+
+                // 팝업 창 스타일을 수정합니다.
+                AlertDialog alertDialog = builder.create();
+                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialog) {
+                        // 확인 버튼에 스타일 적용
+                        Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+                        positiveButton.setTextColor(getResources().getColor(R.color.sub_color));
+
+                        // 팝업 창 배경색 변경
+                        Window window = alertDialog.getWindow();
+                        if (window != null) {
+                            window.setBackgroundDrawableResource(Integer.parseInt("#000000"));
+                        }
+                    }
+                });
+            }
+        });
+
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 팝업 창을 띄웁니다.
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
                 builder.setTitle("로그아웃").setMessage("로그아웃하시겠습니까?")
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
@@ -105,7 +177,7 @@ public class profileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // 팝업 창을 띄웁니다.
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
                 builder.setTitle("회원 탈퇴").setMessage("정말로 회원 탈퇴하시겠습니까?")
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override

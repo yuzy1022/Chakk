@@ -25,11 +25,15 @@ public class Splash extends AppCompatActivity {
 
 
     private String[] permissions = {
-            Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.INTERNET
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA,
+            Manifest.permission.INTERNET
     };
 
     private static final int MULTIPLE_PERMISSIONS = 2021;
     private boolean permission = false;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +43,10 @@ public class Splash extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         if (Build.VERSION.SDK_INT >= 23) { // 안드로이드 6.0 이상일 경우 퍼미션 체크
-            permission = checkPermissions();
-            if(permission) nextActivity();
-        }else{
+           permission = checkPermissions();
             nextActivity();
+        }else{
+           nextActivity();
         }
     }
 
@@ -56,7 +60,7 @@ public class Splash extends AppCompatActivity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
                 startActivity(intent);
-
+                finish();
             }
         }, 3000); // 3초 후 메인액티비티 실행
 

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,20 +15,28 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     FrameLayout frame;
     BottomNavigationView bottomNavigationView;
+    String nickname; // nickname 멤버 변수 추가
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 인텐트로부터 nickname 값을 받아옴
+        Intent intent = getIntent();
+        nickname = intent.getStringExtra("nickname");
+
         init(); //네비게이션 버튼, 객체 생성
         SettingListener(); //네비게이션 버튼 설정
 
-        bottomNavigationView.setSelectedItemId(R.id.tab_home);
+        bottomNavigationView.setSelectedItemId(R.id.tab_home); // 처음 화면으로 tab_home 선택
 
+        profileFragment fragment = profileFragment.newInstance(nickname);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame, fragment);
+        transaction.commit();
         //페이지마다 액션바 이름 바꾸기
     }
-    //test
 
     private void init() {
         frame = findViewById(R.id.frame);
@@ -40,15 +48,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     class TabSelectedLister implements BottomNavigationView.OnNavigationItemSelectedListener {
-
-
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.tab_home: {
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, new homeFragment()).commit();
                     getSupportActionBar().setTitle(R.string.fragHome);
-
                     return true;
                 }
                 case R.id.tab_sns: {
@@ -62,12 +67,11 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 case R.id.tab_profile: {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame, new profileFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame, profileFragment.newInstance(nickname)).commit();
                     getSupportActionBar().setTitle(R.string.actionProfileName);
                     return true;
                 }
             }
-
             return false;
         }
     }
@@ -87,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.actionbar_actions, menu);
-
         return true;
     }
 }

@@ -15,41 +15,19 @@ import com.kakao.sdk.user.UserApiClient;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link profileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class profileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private TextView logoutButton;
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private TextView profileIdTextView;
+    private String nickname;
 
     public profileFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment profileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static profileFragment newInstance(String param1, String param2) {
+    public static profileFragment newInstance(String nickname) {
         profileFragment fragment = new profileFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString("nickname", nickname);
         fragment.setArguments(args);
         return fragment;
     }
@@ -58,24 +36,29 @@ public class profileFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            nickname = getArguments().getString("nickname");
         }
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        logoutButton = view.findViewById(R.id.logOut);
+        profileIdTextView = view.findViewById(R.id.profileId);
+        if (nickname != null) {
+            String profileId = "ID: " + nickname;
+            profileIdTextView.setText(profileId);
+        }
+
+        TextView logoutButton = view.findViewById(R.id.logOut);
+        TextView accountRemove = view.findViewById(R.id.accountRemove);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UserApiClient.getInstance().unlink(new Function1<Throwable, Unit>() {
                     @Override
                     public Unit invoke(Throwable throwable) {
-                        if(throwable != null)
+                        if (throwable != null)
                             Log.d("kakao_logout", "프로퍼티 제거 실패");
                         else
                             Log.d("kakao_logout", "프로퍼티 제거 성공");
@@ -94,8 +77,31 @@ public class profileFragment extends Fragment {
                 });
             }
         });
-
+        accountRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserApiClient.getInstance().unlink(new Function1<Throwable, Unit>() {
+                    @Override
+                    public Unit invoke(Throwable throwable) {
+                        if (throwable != null)
+                            Log.d("kakao_logout", "프로퍼티 제거 실패");
+                        else
+                            Log.d("kakao_logout", "프로퍼티 제거 성공");
+                        return null;
+                    }
+                });
+                UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
+                    @Override
+                    public Unit invoke(Throwable throwable) {
+                        Log.d("kakao", "로그아웃");
+                        Intent intent = new Intent(getActivity(), Login.class);
+                        startActivity(intent);
+                        requireActivity().finish();
+                        return null;
+                    }
+                });
+            }
+        });
         return view;
     }
-
 }

@@ -1,5 +1,6 @@
 package com.example.chack;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.chack.Login;
 import com.kakao.sdk.user.UserApiClient;
 
 import kotlin.Unit;
@@ -55,53 +60,90 @@ public class profileFragment extends Fragment {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserApiClient.getInstance().unlink(new Function1<Throwable, Unit>() {
-                    @Override
-                    public Unit invoke(Throwable throwable) {
-                        if (throwable != null)
-                            Log.d("kakao_logout", "프로퍼티 제거 실패");
-                        else
-                            Log.d("kakao_logout", "프로퍼티 제거 성공");
-                        return null;
-                    }
-                });
-                UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
-                    @Override
-                    public Unit invoke(Throwable throwable) {
-                        Log.d("kakao", "로그아웃");
-                        Intent intent = new Intent(getActivity(), Login.class);
-                        startActivity(intent);
-                        requireActivity().finish();
-                        return null;
-                    }
-                });
+                // 팝업 창을 띄웁니다.
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("로그아웃").setMessage("로그아웃하시겠습니까?")
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 확인 버튼을 누를 경우 로그아웃 수행
+                                UserApiClient.getInstance().unlink(new Function1<Throwable, Unit>() {
+                                    @Override
+                                    public Unit invoke(Throwable throwable) {
+                                        if (throwable != null)
+                                            Log.d("kakao_logout", "프로퍼티 제거 실패");
+                                        else
+                                            Log.d("kakao_logout", "프로퍼티 제거 성공");
+                                        return null;
+                                    }
+                                });
+                                UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
+                                    @Override
+                                    public Unit invoke(Throwable throwable) {
+                                        Log.d("kakao", "로그아웃");
+                                        Intent intent = new Intent(getActivity(), Login.class);
+                                        startActivity(intent);
+                                        requireActivity().finish();
+                                        return null;
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 취소 버튼을 누를 경우 아무 동작 없이 팝업 닫기
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
             }
         });
+
+
         accountRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserApiClient.getInstance().unlink(new Function1<Throwable, Unit>() {
-                    @Override
-                    public Unit invoke(Throwable throwable) {
-                        if (throwable != null)
-                            Log.d("kakao_logout", "프로퍼티 제거 실패");
-                        else
-                            Log.d("kakao_logout", "프로퍼티 제거 성공");
-                        return null;
-                    }
-                });
-                UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
-                    @Override
-                    public Unit invoke(Throwable throwable) {
-                        Log.d("kakao", "로그아웃");
-                        Intent intent = new Intent(getActivity(), Login.class);
-                        startActivity(intent);
-                        requireActivity().finish();
-                        return null;
-                    }
-                });
+                // 팝업 창을 띄웁니다.
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("회원 탈퇴").setMessage("정말로 회원 탈퇴하시겠습니까?")
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 확인 버튼을 누를 경우 회원 탈퇴 수행
+                                UserApiClient.getInstance().unlink(new Function1<Throwable, Unit>() {
+                                    @Override
+                                    public Unit invoke(Throwable throwable) {
+                                        if (throwable != null)
+                                            Log.d("kakao_logout", "회원 탈퇴 실패");
+                                        else
+                                            Log.d("kakao_logout", "회원 탈퇴 성공");
+                                        return null;
+                                    }
+                                });
+                                UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
+                                    @Override
+                                    public Unit invoke(Throwable throwable) {
+                                        Log.d("kakao", "로그아웃");
+                                        Intent intent = new Intent(getActivity(), Login.class);
+                                        startActivity(intent);
+                                        requireActivity().finish();
+                                        return null;
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 취소 버튼을 누를 경우 아무 동작 없이 팝업 닫기
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
             }
         });
+
         return view;
     }
 }

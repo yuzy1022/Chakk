@@ -16,7 +16,7 @@
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/barcode_scanner.xml" value="0.1" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/book_item_main.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/current_book_item_record.xml" value="0.1" />
-        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_addbook.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_addbook.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_current_addbook.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_current_record.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_future_addbook.xml" value="0.14322916666666666" />
@@ -29,7 +29,8 @@
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_sns.xml" value="0.1" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/future_book_item_record.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/memo_item_record.xml" value="0.14322916666666666" />
-        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/menu/btm_navi_menu.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/menu/actionbar_actions.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/menu/btm_navi_menu.xml" value="0.1" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.153" />
       </map>
     </option>

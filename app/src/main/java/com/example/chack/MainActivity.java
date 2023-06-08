@@ -5,15 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     FrameLayout frame;
+    ImageButton tab_barcode;
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -28,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         //페이지마다 액션바 이름 바꾸기
     }
-    //asd
-    //test
 
     private void init() {
         frame = findViewById(R.id.frame);
@@ -51,7 +53,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.tab_home: {
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, new homeFragment()).commit();
                     getSupportActionBar().setTitle(R.string.fragHome);
-
+                    return true;
+                }
+                case R.id.tab_barcode: {
+                    Intent intent = new Intent(MainActivity.this,BarcodeScan.class);
+                    startActivity(intent);
                     return true;
                 }
                 case R.id.tab_sns: {

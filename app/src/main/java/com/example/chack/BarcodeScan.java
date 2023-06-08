@@ -1,6 +1,7 @@
 package com.example.chack;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.media.Image;
@@ -163,25 +164,6 @@ public class BarcodeScan extends AppCompatActivity {
                     cameraExecutor.shutdownNow();
                     break;
 
-                case Barcode.TYPE_WIFI:
-                    Toast.makeText(this, "wifi", Toast.LENGTH_SHORT).show();
-
-
-                    String ssid = barcode.getWifi().getSsid();
-                    String password = barcode.getWifi().getPassword();
-                    int type = barcode.getWifi().getEncryptionType();
-
-                    cameraExecutor.shutdownNow();
-
-                    break;
-                case Barcode.TYPE_URL:
-                    Toast.makeText(this, "url", Toast.LENGTH_SHORT).show();
-                    String title = barcode.getUrl().getTitle();
-                    String url = barcode.getUrl().getUrl();
-
-                    cameraExecutor.shutdownNow();
-
-                    break;
             }
         }
     }
@@ -218,5 +200,13 @@ public class BarcodeScan extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         closeCamera();
+    }
+
+    // 뒤로가기시 메인액티비티로 (이거없으면 뒤로가기시 네비게이션에 바코드선택되어있음)
+    public void onBackPressed(){
+        super.onBackPressed();
+        Intent intent = new Intent(BarcodeScan.this,MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

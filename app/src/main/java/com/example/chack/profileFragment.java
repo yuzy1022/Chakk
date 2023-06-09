@@ -38,6 +38,7 @@ public class profileFragment extends Fragment {
         if (getArguments() != null) {
             nickname = getArguments().getString("nickname");
         }
+
     }
 
     @Override
@@ -104,4 +105,5 @@ public class profileFragment extends Fragment {
         });
         return view;
     }
+
 }

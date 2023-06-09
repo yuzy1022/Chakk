@@ -53,6 +53,7 @@ public class addBookFragment extends Fragment {
     }
     AutoCompleteTextView auto;//자동완성 텍스트뷰
     ImageButton search_button,back_button;//검색버튼,뒤로가기 버튼
+    ImageView barcode_button;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -100,6 +101,17 @@ public class addBookFragment extends Fragment {
         auto = view.findViewById(R.id.search_bar);
         search_button=view.findViewById(R.id.search_button);
         back_button=view.findViewById(R.id.back_button);
+        barcode_button = view.findViewById(R.id.barcode_button);
+
+        //바코드 버튼 클릭 시 이벤트
+        barcode_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),BarcodeScan.class); //fragment라서 activity intent와는 다른 방식
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);         // 프래그먼트 > 액티비티 화면전환 성공
+                startActivity(intent);
+            }
+        });
 
         //뒤로가기 버튼 클릭 시 이벤트
         back_button.setOnClickListener(new View.OnClickListener() {
@@ -127,7 +139,3 @@ public class addBookFragment extends Fragment {
         return view;
     }
 }
-
-
-
-    

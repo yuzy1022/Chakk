@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,40 +15,48 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     FrameLayout frame;
     BottomNavigationView bottomNavigationView;
+    String nickname; // nickname 멤버 변수 추가
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 인텐트로부터 nickname 값을 받아옴
+        Intent intent = getIntent();
+        nickname = intent.getStringExtra("nickname");
+
         init(); //네비게이션 버튼, 객체 생성
         SettingListener(); //네비게이션 버튼 설정
 
-        bottomNavigationView.setSelectedItemId(R.id.tab_home);
+        bottomNavigationView.setSelectedItemId(R.id.tab_home); // 처음 화면으로 tab_home 선택
 
+        profileFragment fragment = profileFragment.newInstance(nickname);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame, fragment);
+        transaction.commit();
         //페이지마다 액션바 이름 바꾸기
+
+
     }
-    //test
 
     private void init() {
         frame = findViewById(R.id.frame);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
     }
 
+
     private void SettingListener() {
         bottomNavigationView.setOnItemSelectedListener(new TabSelectedLister());
     }
 
     class TabSelectedLister implements BottomNavigationView.OnNavigationItemSelectedListener {
-
-
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.tab_home: {
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, new homeFragment()).commit();
                     getSupportActionBar().setTitle(R.string.fragHome);
-
                     return true;
                 }
                 case R.id.tab_sns: {
@@ -62,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 case R.id.tab_profile: {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame, new profileFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame, profileFragment.newInstance(nickname)).commit();
                     getSupportActionBar().setTitle(R.string.actionProfileName);
                     return true;
                 }
@@ -78,9 +86,9 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new homeFragment()).commitAllowingStateLoss();
         } else if (index == 1) {//1일 경우 서가검색으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new addBookFragment()).commitAllowingStateLoss();
-        } else if (index == 2) {//1일 경우 서가검색으로
+        } else if (index == 2) {//2일 경우 SNS검색으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new snsFragment()).commitAllowingStateLoss();
-        } else if (index == 3) {//1일 경우 서가검색으로
+        } else if (index == 3) {//3일 경우 SNS 글 작성으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new writeFragment()).commitAllowingStateLoss();
         }
     }

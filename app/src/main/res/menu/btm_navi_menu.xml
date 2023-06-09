@@ -9,25 +9,24 @@
     <item
         android:id="@+id/tab_barcode"
         android:enabled="true"
-        android:icon="@drawable/barcord"
-        android:title="바코드"
-        />
+        android:icon="@drawable/barcode"
+        android:title="바코드"/>
 
     <item
         android:id="@+id/tab_sns"
         android:enabled="true"
-        android:icon="@drawable/sns"
+        android:icon="@drawable/usersalt"
         android:title="커뮤니티"/>
     <item
         android:id="@+id/tab_record"
         android:enabled="true"
-        android:icon="@drawable/record"
+        android:icon="@drawable/recordicon"
         android:title="내 서재" />
 
     <item
         android:id="@+id/tab_profile"
         android:enabled="true"
-        android:icon="@drawable/setting"
+        android:icon="@drawable/user"
         android:title="프로필" />
 
 </menu>

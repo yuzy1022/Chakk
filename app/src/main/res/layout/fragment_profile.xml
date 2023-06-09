@@ -63,20 +63,6 @@
             android:layout_margin="12dp"
             android:text="계정 설정">
         </TextView>
-
-        <TextView
-            android:id="@+id/nameChange"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="27.333dp"
-            android:text="이름 변경"></TextView>
-        <TextView
-            android:id="@+id/passwdChamge"
-            android:layout_width="85dp"
-            android:layout_height="18dp"
-            android:layout_marginLeft="27.333dp"
-            android:text="패스워드 변경">
-        </TextView>
         <TextView
             android:id="@+id/logOut"
             android:layout_width="60dp"
@@ -104,13 +90,6 @@
             android:layout_height="18dp"
             android:layout_marginLeft="27.333dp"
             android:text="알림 설정">
-        </TextView>
-        <TextView
-            android:id="@+id/inquiry"
-            android:layout_width="60dp"
-            android:layout_height="18dp"
-            android:layout_marginLeft="27.333dp"
-            android:text="문의 사항">
         </TextView>
         <TextView
             android:id="@+id/announcement"

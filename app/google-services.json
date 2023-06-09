@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "458391198799",
+    "firebase_url": "https://chakk-98730-default-rtdb.firebaseio.com",
+    "project_id": "chakk-98730",
+    "storage_bucket": "chakk-98730.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458391198799:android:8ebe156a62eb8bb7995e3a",
+        "android_client_info": {
+          "package_name": "com.example.chack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458391198799-274nku5pkkla2goabj5opv0fq7j5g9pt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbSfqro8MxT2yxAi-w3BJNbEIh4l7zJY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458391198799-274nku5pkkla2goabj5opv0fq7j5g9pt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

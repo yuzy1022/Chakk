@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!-- 알림설정 -->
+    <!-- alram에서 alram defaultValue="true" 이값이 true, false 여부에 따라
+     dependency="alram"이 붙어있는 항목 활성화 비활성화 -->
+    <PreferenceCategory
+        android:title="알림설정">
+        <SwitchPreference
+            android:key="alarm"
+            android:title="알림켜기"
+            android:summary="알림 활성화, 비활성화 여부"
+            android:defaultValue="true"/>
+        <CheckBoxPreference
+            android:key="alarm1"
+            android:title="진동켜기"
+            android:dependency="alram"/>
+        <CheckBoxPreference
+            android:key="alarm2"
+            android:title="댓글알림"
+            android:dependency="alram"/>
+        <CheckBoxPreference
+            android:key="alarm3"
+            android:title="읽고 싶은 책 알림"
+            android:dependency="alram"/>
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

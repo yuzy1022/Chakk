@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
     }
 
-    //추가
-
     private void SettingListener() {
         bottomNavigationView.setOnItemSelectedListener(new TabSelectedLister());
     }

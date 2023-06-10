@@ -16,11 +16,14 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout frame;
     BottomNavigationView bottomNavigationView;
     String nickname; // nickname 멤버 변수 추가
+    public static MainActivity main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        main = this;
 
         // 인텐트로부터 nickname 값을 받아옴
         Intent intent = getIntent();
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         if (index == 0) {//0일 경우 홈화면으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new homeFragment()).commitAllowingStateLoss();
         } else if (index == 1) {//1일 경우 서가검색으로
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame, new addBookFragment()).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame, new searchBookFragment()).commitAllowingStateLoss();
         } else if (index == 2) {//2일 경우 SNS검색으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new snsFragment()).commitAllowingStateLoss();
         } else if (index == 3) {//3일 경우 SNS 글 작성으로

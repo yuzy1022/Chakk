@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.Lifecycle;
@@ -85,9 +86,9 @@ public class searchResultFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(ct, RecyclerView.VERTICAL, false)); //리사이클러뷰 세로방향 설정
 
         //레트로핏2을 이용해 검색어로 알라딘 api에 검색결과 받아옴
-        RetrofitAladin retrofitAladin = RetrofitAladin.getInstance();
+        RetrofitAladin retrofitAladin = RetrofitAladin.getInstance(true);
         AladinHttpRequest httpRequest_aladin = retrofitAladin.getRetrofitInterface();
-        httpRequest_aladin.getSearchBook("ttbjhp22121729001", DataClass.searchText, "Book", "100", "js", "20131101").enqueue(new Callback<DataClass>()
+        httpRequest_aladin.getSearchBook("ttbjhp22121729001", DataClass.searchText, "Keyword", "Book", "100", "js", "20131101").enqueue(new Callback<DataClass>()
         {
             @SuppressLint("NotifyDataSetChanged")
             @Override
@@ -106,6 +107,19 @@ public class searchResultFragment extends Fragment {
                         adapter.setArrayData(data.getItem()[i]); //Item 클래스의 객체로 넣어줌
                     }
 
+                    //커스텀 이벤트 리스너 객체를 생성하여 어댑터에 전달
+                    adapter.setOnItemClickListener(new AddBookFragAdapter.OnItemClickListener()
+                    {
+                        //아이템 클릭시
+                        @Override
+                        public void onItemClick(View v, int position)
+                        {
+                            DataClass.searchText = data.getItem()[position].getIsbn13();  //해당 아이템의 isbn13을 가져와 저장
+                            //addBookFragment생성
+                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame, new addBookFragment()).commitAllowingStateLoss();
+                        }
+                    });
+
                     recyclerView.setAdapter(adapter);  //리사이클러 뷰에 어댑터 설정
                 }
             }
@@ -123,36 +137,16 @@ public class searchResultFragment extends Fragment {
 }
 
 
-//검색결과 프래그먼트 리사이클러뷰 뷰홀더 클래스
-class AddBookFragViewHolder extends RecyclerView.ViewHolder
-{
 
-    public ImageView image;
-    public TextView name, writer, date, pub;
-    public RatingBar rating;
-
-    //생성자
-    AddBookFragViewHolder(Context context, View itemView)
-    {
-        super(itemView);
-
-        //책이미지, 이름, 작가, 정보, 레이팅바
-        image = itemView.findViewById(R.id.bookimage);
-        name = itemView.findViewById(R.id.bookname);
-        writer = itemView.findViewById(R.id.bookauthor);
-        date = itemView.findViewById(R.id.bookdate);
-        pub = itemView.findViewById(R.id.bookpub);
-        rating = itemView.findViewById(R.id.bookrating);
-    }
-}
 
 
 //검색결과 프래그먼트 리사이클러뷰의 어댑터 클래스
-class AddBookFragAdapter extends RecyclerView.Adapter<AddBookFragViewHolder>
+class AddBookFragAdapter extends RecyclerView.Adapter<AddBookFragAdapter.AddBookFragViewHolder>
 {
     //책 정보를 담아놓을 리스트
     private ArrayList<Item> arrayList;
     private Context con;
+    private OnItemClickListener mListener = null; //setOnItemClickListener메소드로 전달된 객체를 저장할 변수(mListener)
 
     //생성자
     public AddBookFragAdapter()
@@ -182,19 +176,14 @@ class AddBookFragAdapter extends RecyclerView.Adapter<AddBookFragViewHolder>
         holder.date.setText(item.getPubDate());  //출판일 설정
         holder.pub.setText(item.getPublisher()); //출판사 설정
         holder.rating.setRating(Float.parseFloat(item.getCustomerReviewRank())/2);  //가져온 평점으로 평점 설정
-
-        if(item.getTitle().length() > 40) //책이름 40자 넘어가면 자르고 ...붙이기
-            holder.name.setText(item.getTitle().substring(0, 41) + "...");
-        else
-            holder.name.setText(item.getTitle());
-        if(item.getAuthor().length() > 45) //작가 45자 넘어가면 자르고 ...붙이기
-            holder.writer.setText(item.getTitle().substring(0, 46) + "...");
-        else
-            holder.writer.setText(item.getAuthor());
+        holder.writer.setText(item.getAuthor());  //작가 설정
+        holder.name.setText(item.getTitle());  //제목 설정
 
         //Glide 라이브러리로 이미지뷰에 네트워크 이미지 표시 (책 표지)
         String url = item.getCover();
-        Glide.with(con).load(url).into(holder.image);
+        Glide.with(con).load(url)
+                .error(R.drawable.x) //이미지 불러오지 못했을 때 x표시 이미지 띄움
+                .into(holder.image);
     }
 
     //이미지소스 리스트의 개수를 리턴해주는 메소드
@@ -209,4 +198,56 @@ class AddBookFragAdapter extends RecyclerView.Adapter<AddBookFragViewHolder>
         arrayList.add(data);
     }
 
+    //커스텀 리스너 인터페이스 정의
+    public interface OnItemClickListener
+    {
+        void onItemClick(View v, int position);
+    }
+
+    //리스너 객체를 전달하는 메소드(setOnItemClickListener)
+    public void setOnItemClickListener(OnItemClickListener listener)
+    {
+        this.mListener = listener;
+    }
+
+
+
+    //검색결과 프래그먼트 리사이클러뷰 뷰홀더 클래스
+    public class AddBookFragViewHolder extends RecyclerView.ViewHolder
+    {
+
+        public ImageView image;
+        public TextView name, writer, date, pub;
+        public RatingBar rating;
+        public String isbn13;
+
+        //생성자
+        AddBookFragViewHolder(Context context, View itemView)
+        {
+            super(itemView);
+
+            //책이미지, 이름, 작가, 정보, 레이팅바
+            image = itemView.findViewById(R.id.bookimage);
+            name = itemView.findViewById(R.id.bookname);
+            writer = itemView.findViewById(R.id.bookauthor);
+            date = itemView.findViewById(R.id.bookdate);
+            pub = itemView.findViewById(R.id.bookpub);
+            rating = itemView.findViewById(R.id.bookrating);
+
+            //리사이클러뷰의 아이템 클릭 이벤트 (클릭하면 addbook 프래그먼트 생성)
+            itemView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    int pos = getAdapterPosition(); //어댑터 내 아이템의 위치를 리턴해주는 메소드
+                    if (pos != RecyclerView.NO_POSITION)
+                    {
+                        if(mListener != null)
+                            mListener.onItemClick(v, pos);
+                    }
+                }
+            });
+        }
+    }
 }

@@ -69,7 +69,7 @@ public class pastRecordFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        Context ct = container.getContext(); //프래그먼트의 context
+        Context ct = this.getContext(); //프래그먼트의 context
         View v =  inflater.inflate(R.layout.fragment_past_record, container, false); //프래그먼트 레이아웃(xml)을 가져와 뷰객체 생성
 
         //생성한 뷰객체를 이용해 리사이클러뷰를 초기화

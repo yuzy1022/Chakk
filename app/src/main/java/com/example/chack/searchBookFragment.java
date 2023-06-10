@@ -113,4 +113,10 @@ public class searchBookFragment extends Fragment {
         });
         return view;
     }
+
+
+    public static void addBookfragment()
+    {
+        MainActivity.main.getSupportFragmentManager().beginTransaction().replace(R.id.frame, new addBookFragment()).commitAllowingStateLoss();
+    }
 }

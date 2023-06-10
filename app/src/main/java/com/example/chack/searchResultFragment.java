@@ -114,8 +114,7 @@ public class searchResultFragment extends Fragment {
                         @Override
                         public void onItemClick(View v, int position)
                         {
-                            //DataClass.searchText = data.getItem()[position].getTitle(); //해당 아이템의 제목을 가져와 저장
-                            DataClass.searchText = data.getItem()[position].getIsbn13();
+                            DataClass.searchText = data.getItem()[position].getIsbn13();  //해당 아이템의 isbn13을 가져와 저장
                             //addBookFragment생성
                             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame, new addBookFragment()).commitAllowingStateLoss();
                         }

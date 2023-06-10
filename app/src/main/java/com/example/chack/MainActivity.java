@@ -16,11 +16,14 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout frame;
     BottomNavigationView bottomNavigationView;
     String nickname; // nickname 멤버 변수 추가
+    public static MainActivity main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        main = this;
 
         // 인텐트로부터 nickname 값을 받아옴
         Intent intent = getIntent();

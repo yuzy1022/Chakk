@@ -1,44 +1,19 @@
 package com.example.chack;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RatingBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
-import com.google.logging.type.HttpRequest;
-
-import org.checkerframework.checker.nullness.qual.NonNull;
-
-import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-
-public class addBookFragment extends Fragment {
+public class searchBookFragment extends Fragment {
     MainActivity activity;
     View dlgview;
     @Override
@@ -66,8 +41,8 @@ public class addBookFragment extends Fragment {
 
 
     // TODO: Rename and change types and number of parameters
-    public static addBookFragment newInstance(String param1, String param2) {
-        addBookFragment fragment = new addBookFragment();
+    public static searchBookFragment newInstance(String param1, String param2) {
+        searchBookFragment fragment = new searchBookFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -75,7 +50,7 @@ public class addBookFragment extends Fragment {
         return fragment;
     }
 
-    public addBookFragment() {
+    public searchBookFragment() {
         // Required empty public constructor
     }
 
@@ -94,7 +69,7 @@ public class addBookFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_addbook, container, false);
+        View view= inflater.inflate(R.layout.fragment_searchbook, container, false);
         Context ct = container.getContext(); //프래그먼트의 context
 
         //검색텍스트, 버튼

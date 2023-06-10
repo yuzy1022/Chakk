@@ -14,14 +14,15 @@ public interface AladinHttpRequest {
     @GET("ItemSearch.aspx")
     Call<DataClass> getSearchBook(  //상품검색
             @Query("ttbkey") String ttbkey,  //ttb키 입력
-            @Query("Query") String Query,  //검색할 검색어
+            @Query("Query") String Query, //검색할 검색어
+            @Query("QueryType") String QueryType, //검색어 종류 (Keyword : 제목+저자, Title : 제목, Author : 저자)
             @Query("SearchTarget") String searchTarget, //검색대상 (Book으로 입력)
             @Query("MaxResults") String maxResult,  //검색 결과 최대 출력 개수 (최대 100)
             @Query("output") String output,  //출력 방법 (js로 입력)
             @Query("Version") String version  //버전 (20131101 입력)
     );
 
-    @GET("ItemLookUp")
+    @GET("ItemLookUp.aspx")
     Call<DataClass> getISBNSearchBook( //상품 조회
             @Query("ttbkey") String ttbkey, //ttb키 입력
             @Query("ItemId") String itemId, // ItemIdType에서 정한 타입으로 검색할 값 입력

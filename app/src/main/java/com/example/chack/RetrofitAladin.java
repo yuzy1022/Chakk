@@ -27,13 +27,34 @@ public class RetrofitAladin
         retrofitAPI = retrofit.create(AladinHttpRequest.class);
     }
 
-    public static RetrofitAladin getInstance()
+    private RetrofitAladin(int i)
     {
-        if(instance == null)
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        retrofitAPI = retrofit.create(AladinHttpRequest.class);
+    }
+
+    public static RetrofitAladin getInstance(boolean a)
+    {
+        if(a)
         {
-            instance = new RetrofitAladin();
+            if(instance == null)
+            {
+                instance = new RetrofitAladin();
+            }
+            return instance;
         }
-        return instance;
+        else
+        {
+            if(instance == null)
+            {
+                instance = new RetrofitAladin(0);
+            }
+            return instance;
+        }
+
     }
 
     public static AladinHttpRequest getRetrofitInterface()

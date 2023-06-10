@@ -16,15 +16,19 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout frame;
     BottomNavigationView bottomNavigationView;
     String nickname; // nickname 멤버 변수 추가
+    public static MainActivity main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        main = this;
+
         // 인텐트로부터 nickname 값을 받아옴
         Intent intent = getIntent();
         nickname = intent.getStringExtra("nickname");
+
 
         init(); //네비게이션 버튼, 객체 생성
         SettingListener(); //네비게이션 버튼 설정
@@ -33,12 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         profileFragment fragment = profileFragment.newInstance(nickname);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, fragment);
         transaction.commit();
         //페이지마다 액션바 이름 바꾸기
 
 
     }
+
 
     private void init() {
         frame = findViewById(R.id.frame);
@@ -74,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportActionBar().setTitle(R.string.actionProfileName);
                     return true;
                 }
+
             }
 
             return false;
@@ -85,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         if (index == 0) {//0일 경우 홈화면으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new homeFragment()).commitAllowingStateLoss();
         } else if (index == 1) {//1일 경우 서가검색으로
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame, new addBookFragment()).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame, new searchBookFragment()).commitAllowingStateLoss();
         } else if (index == 2) {//2일 경우 SNS검색으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new snsFragment()).commitAllowingStateLoss();
         } else if (index == 3) {//3일 경우 SNS 글 작성으로

@@ -1,12 +1,17 @@
 package com.example.chack;
 
+import static com.google.android.material.internal.ContextUtils.getActivity;
+
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Surface;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -20,6 +25,7 @@ import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,8 +43,9 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.zip.Inflater;
 
-public class BarcodeScan extends AppCompatActivity {
+public class BarcodeScan extends FragmentActivity {
 
     private PreviewView mPreviewView;
     private ListenableFuture cameraProviderFuture;
@@ -52,7 +59,6 @@ public class BarcodeScan extends AppCompatActivity {
         setContentView(R.layout.barcode_scanner);
 
         init();
-
     }
 
     private void init(){
@@ -159,6 +165,10 @@ public class BarcodeScan extends AppCompatActivity {
                     String isbn ;
                     isbn = barcode.getRawValue();
                     Toast.makeText(this, isbn, Toast.LENGTH_SHORT).show();
+                    DataClass.searchText = isbn;
+                    MainActivity.main.onFragmentChange(1);
+                    searchBookFragment.addBookfragment();
+                    this.finish();
 
                     cameraExecutor.shutdownNow();
                     break;

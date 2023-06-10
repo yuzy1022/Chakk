@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.chack.MainActivity;
@@ -22,7 +23,7 @@ import com.example.chack.MainActivity;
 public class snsFragment extends Fragment {
     View v;
     MainActivity activity;
-    ImageButton writeBtn;
+    Button writeBtn;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

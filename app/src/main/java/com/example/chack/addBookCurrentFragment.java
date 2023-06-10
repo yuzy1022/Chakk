@@ -1,11 +1,19 @@
 package com.example.chack;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class addBookCurrentFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -16,6 +24,13 @@ public class addBookCurrentFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    View v;
+
+    EditText currentDate;
+    Calendar currentCalendar = Calendar.getInstance();
+    DatePickerDialog currentDialog;
+    Calendar maxDate = Calendar.getInstance(); //최대 날짜 지정
 
     public addBookCurrentFragment() {
         // Required empty public constructor
@@ -46,14 +61,48 @@ public class addBookCurrentFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        v = inflater.inflate(R.layout.fragment_current_addbook, container, false);
+        currentDate = v.findViewById(R.id.currentDate);
+        currentDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentDialog = new DatePickerDialog(
+                        getActivity(),
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                currentCalendar.set(Calendar.YEAR, year);
+                                currentCalendar.set(Calendar.MONTH, month);
+                                currentCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                                updateLabel();
+                            }
+                        },
+                        currentCalendar.get(Calendar.YEAR),
+                        currentCalendar.get(Calendar.MONTH),
+                        currentCalendar.get(Calendar.DAY_OF_MONTH)
+                );
+                int year = maxDate.get(Calendar.YEAR);
+                int month = maxDate.get(Calendar.MONTH);
+                int day = maxDate.get(Calendar.DAY_OF_MONTH);
+
+                maxDate.set(year,month,day);
+                currentDialog.getDatePicker().setMaxDate(maxDate.getTimeInMillis()); //다 읽은 날짜 선택시 오늘을 넘길 수 없도록 설정
+                currentDialog.show();
+            }
+        });
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_current_addbook, container, false);
+        return v;
+    }
+    private void updateLabel() {
+        String myFormat = "yyyy년 MM월 dd일";    // 출력형식   2023/06/01
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.KOREA);
+
+        EditText currentDate = (EditText) getView().findViewById(R.id.currentDate);
+        currentDate.setText(sdf.format(currentCalendar.getTime()));
     }
 }

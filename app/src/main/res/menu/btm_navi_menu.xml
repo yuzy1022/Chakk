@@ -7,6 +7,12 @@
         android:title="홈"/>
 
     <item
+        android:id="@+id/tab_barcode"
+        android:enabled="true"
+        android:icon="@drawable/barcode"
+        android:title="바코드"/>
+
+    <item
         android:id="@+id/tab_sns"
         android:enabled="true"
         android:icon="@drawable/sns"

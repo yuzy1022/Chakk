@@ -36,12 +36,15 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.frame, fragment);
         transaction.commit();
         //페이지마다 액션바 이름 바꾸기
+
+
     }
 
     private void init() {
         frame = findViewById(R.id.frame);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
     }
+
 
     private void SettingListener() {
         bottomNavigationView.setOnItemSelectedListener(new TabSelectedLister());
@@ -72,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             }
+
             return false;
         }
     }
@@ -82,15 +86,16 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new homeFragment()).commitAllowingStateLoss();
         } else if (index == 1) {//1일 경우 서가검색으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new addBookFragment()).commitAllowingStateLoss();
-        } else if (index == 2) {//1일 경우 서가검색으로
+        } else if (index == 2) {//2일 경우 SNS검색으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new snsFragment()).commitAllowingStateLoss();
-        } else if (index == 3) {//1일 경우 서가검색으로
+        } else if (index == 3) {//3일 경우 SNS 글 작성으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new writeFragment()).commitAllowingStateLoss();
         }
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.actionbar_actions, menu);
+
         return true;
     }
 }

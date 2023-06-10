@@ -26,7 +26,8 @@
             app:tabTextColor="@color/main_color"
             app:tabSelectedTextColor="@color/selected_color"
             app:tabGravity="fill"
-            app:tabTextAppearance="@style/tab_text">
+            app:tabTextAppearance="@style/tab_text"
+            android:layout_marginBottom="10dp">
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/past"
@@ -54,7 +55,7 @@
 
         </com.google.android.material.tabs.TabLayout>
 
-        <androidx.viewpager.widget.ViewPager
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

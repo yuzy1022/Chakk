@@ -69,7 +69,7 @@ public class currentRecordFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        Context ct = container.getContext(); //프래그먼트의 context
+        Context ct = this.getContext(); //프래그먼트의 context
         View v = inflater.inflate(R.layout.fragment_current_record, container, false);
 
         //생성한 뷰객체를 이용해 리사이클러뷰를 초기화

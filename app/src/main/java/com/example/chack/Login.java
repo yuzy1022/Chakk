@@ -19,6 +19,7 @@ import kotlin.jvm.functions.Function2;
 public class Login extends AppCompatActivity {
     private static final String TAG = "login";
     private View loginButton;
+    android.widget.Button guestButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class Login extends AppCompatActivity {
 
 
         loginButton = findViewById(R.id.login);
-
+        guestButton = findViewById(R.id.guestLoginButton);
         Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>() {
             @Override
             public Unit invoke(OAuthToken token, Throwable error) {
@@ -54,6 +55,15 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+        guestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, MainActivity.class);
+                intent.putExtra("nickname", (String[]) null); // nickname 값을 인텐트에 추가
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void updateKakaoLoginUi() {
@@ -70,7 +80,7 @@ public class Login extends AppCompatActivity {
                     Log.d(TAG, "UserId: " + id);
                     Log.d(TAG, "Profile Image URL: " + profileImageUrl);
                     // 이미 로그인된 상태
-                    Toast.makeText(Login.this, "이미 로그인되었습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "로그인되었습니다.", Toast.LENGTH_SHORT).show();
 //                    Intent intent = new Intent(Login.this, MainActivity.class);
 //                    startActivity(intent);
 //                    finish();

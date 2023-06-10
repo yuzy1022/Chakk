@@ -55,7 +55,7 @@ public class profileFragment extends Fragment {
         if (nickname != null) {
             String profileId = "ID: " + nickname;
             profileIdTextView.setText(profileId);
-        }
+        }else{profileIdTextView.setText(null);}
 
         TextView logoutButton = view.findViewById(R.id.logOut);
         TextView accountRemove = view.findViewById(R.id.accountRemove);
@@ -133,12 +133,15 @@ public class profileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // 팝업 창을 띄웁니다.
+                if(nickname!=null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
                 builder.setTitle("로그아웃").setMessage("로그아웃하시겠습니까?")
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 // 확인 버튼을 누를 경우 로그아웃 수행
+                                nickname=null;
+                                profileIdTextView.setText(nickname);
                                 UserApiClient.getInstance().unlink(new Function1<Throwable, Unit>() {
                                     @Override
                                     public Unit invoke(Throwable throwable) {
@@ -169,7 +172,20 @@ public class profileFragment extends Fragment {
                             }
                         })
                         .show();
-            }
+            }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
+                    builder.setTitle("알림").setMessage("로그인 후 이용해주세요.")
+                            .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(getActivity(), Login.class);
+                                    startActivity(intent);
+                                    requireActivity().finish();
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
+                }}
         });
 
 
@@ -177,12 +193,16 @@ public class profileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // 팝업 창을 띄웁니다.
+                if(nickname!=null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
-                builder.setTitle("회원 탈퇴").setMessage("정말로 회원 탈퇴하시겠습니까?")
+                builder.setTitle("계정 탈퇴").setMessage("정말로 계정 탈퇴하시겠습니까?")
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                if(nickname!=null){
                                 // 확인 버튼을 누를 경우 회원 탈퇴 수행
+                                    nickname=null;
+                                    profileIdTextView.setText(nickname);
                                 UserApiClient.getInstance().unlink(new Function1<Throwable, Unit>() {
                                     @Override
                                     public Unit invoke(Throwable throwable) {
@@ -202,7 +222,7 @@ public class profileFragment extends Fragment {
                                         requireActivity().finish();
                                         return null;
                                     }
-                                });
+                                });}
                             }
                         })
                         .setNegativeButton("취소", new DialogInterface.OnClickListener() {
@@ -213,7 +233,20 @@ public class profileFragment extends Fragment {
                             }
                         })
                         .show();
-            }
+            }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
+                    builder.setTitle("알림").setMessage("로그인 후 이용해주세요.")
+                            .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(getActivity(), Login.class);
+                                    startActivity(intent);
+                                    requireActivity().finish();
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
+                }}
         });
 
         return view;

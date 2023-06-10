@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         nickname = intent.getStringExtra("nickname");
 
+
         init(); //네비게이션 버튼, 객체 생성
         SettingListener(); //네비게이션 버튼 설정
 
@@ -33,12 +34,12 @@ public class MainActivity extends AppCompatActivity {
 
         profileFragment fragment = profileFragment.newInstance(nickname);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, fragment);
         transaction.commit();
         //페이지마다 액션바 이름 바꾸기
 
 
     }
+
 
     private void init() {
         frame = findViewById(R.id.frame);
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportActionBar().setTitle(R.string.actionProfileName);
                     return true;
                 }
+
             }
 
             return false;

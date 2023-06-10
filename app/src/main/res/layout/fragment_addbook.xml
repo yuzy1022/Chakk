@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="23dp"
+                android:layout_height="20.333dp"
+                android:id="@+id/back_button"
+                android:src="@drawable/back"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16.667dp"
+                android:padding="0dp"
+                android:scaleType="centerCrop"
+                android:background="#FFFFFF"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="서가 채우기"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:fontFamily="@font/calibrib"
+                android:textColor="@color/book_data_color"
+                android:layout_marginLeft="115dp"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:tabIndicatorColor="@color/selected_color"
+            app:tabTextColor="@color/main_color"
+            app:tabSelectedTextColor="@color/selected_color"
+            app:tabGravity="fill"
+            app:tabTextAppearance="@style/tab_text">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/past"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="읽은 책" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/current"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="읽고 있는 책" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/future"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="읽고 싶은 책" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/bookplus"
+            android:clickable="false"
+            >
+            <ImageView
+                android:id="@+id/bookimage"
+                android:layout_width="100dp"
+                android:layout_height="135dp"
+                android:layout_gravity="top"
+                android:layout_margin="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/bookname"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="0dp"
+                    android:textSize="18sp"
+                    android:text="세이노의가르침세이노의가르침세이노의가르침세이노의가르침세이"
+                    android:fontFamily="@font/calibrib"
+                    android:textColor="@color/book_name_color"
+                    android:maxLines="2"
+                    android:ellipsize="end"/>
+                <TextView
+                    android:id="@+id/bookauthor"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="0dp"
+                    android:textSize="15sp"
+                    android:text="세이노세이노세이노세이노세이노세이노세이노세이노세이노세이노세이노세이노"
+                    android:fontFamily="@font/calibrib"
+                    android:textColor="@color/book_data_color"
+                    android:maxLines="2"
+                    android:ellipsize="end"/>
+                <TextView
+                    android:id="@+id/bookdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="0dp"
+                    android:textSize="15sp"
+                    android:text="2020.10.15"
+                    android:fontFamily="@font/calibrib"
+                    android:textColor="@color/book_data_color"/>
+                <TextView
+                    android:id="@+id/bookpub"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="0dp"
+                    android:textSize="15sp"
+                    android:text="생능출판사"
+                    android:fontFamily="@font/calibrib"
+                    android:textColor="@color/book_data_color"/>
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bookrating"
+                    android:numStars="5"
+                    android:stepSize="0.5"
+                    android:rating="4"
+                    android:isIndicator="true"
+                    android:progressTint="@color/book_rating_color"
+                    style="@style/Widget.AppCompat.RatingBar.Small"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

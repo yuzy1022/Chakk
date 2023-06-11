@@ -8,7 +8,7 @@ public class BookItemRecord
 {
     int image, bookPage, readPage;
     float rating;
-    String name, writer;
+    String name, writer, isbn13, pub;
     Date startingDate, endDate;
 
     //시작 날짜 설정하는 메소드

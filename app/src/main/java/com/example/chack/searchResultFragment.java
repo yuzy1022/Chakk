@@ -2,14 +2,9 @@ package com.example.chack;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,12 +16,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
 import com.bumptech.glide.Glide;
-
-import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.ArrayList;
 
@@ -162,7 +152,7 @@ class AddBookFragAdapter extends RecyclerView.Adapter<AddBookFragAdapter.AddBook
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         //검색결과 레이아웃을 인플레이트하여 뷰홀더 생성
-        View view = inflater.inflate(R.layout.add_book_item, parent, false);
+        View view = inflater.inflate(R.layout.search_book_item, parent, false);
         AddBookFragViewHolder viewHolder = new AddBookFragViewHolder(context, view);
 
         //생성한 뷰홀더 리턴

@@ -67,7 +67,7 @@ public class profileFragment extends Fragment {
             public void onClick(View v) {
                 // 팝업 창을 띄웁니다.
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
-                builder.setTitle("공지사항").setMessage("이 부분에 공지사항 내용을 입력하세요.")
+                builder.setTitle("공지사항").setMessage("이 애플리케이션은 아직 개발중에 있습니다.")
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -77,22 +77,6 @@ public class profileFragment extends Fragment {
                         })
                         .show();
 
-                // 팝업 창 스타일을 수정합니다.
-                AlertDialog alertDialog = builder.create();
-                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
-                    @Override
-                    public void onShow(DialogInterface dialog) {
-                        // 확인 버튼에 스타일 적용
-                        Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
-                        positiveButton.setTextColor(getResources().getColor(R.color.sub_color));
-
-                        // 팝업 창 배경색 변경
-                        Window window = alertDialog.getWindow();
-                        if (window != null) {
-                            window.setBackgroundDrawableResource(Integer.parseInt("#FFFFFF"));
-                        }
-                    }
-                });
             }
         });
 
@@ -101,7 +85,7 @@ public class profileFragment extends Fragment {
             public void onClick(View v) {
                 // 팝업 창을 띄웁니다.
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
-                builder.setTitle("앱 정보").setMessage("이 부분에 앱 정보를 입력하세요.")
+                builder.setTitle("앱 정보").setMessage("버전 1.0.0")
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -110,23 +94,6 @@ public class profileFragment extends Fragment {
                             }
                         })
                         .show();
-
-                // 팝업 창 스타일을 수정합니다.
-                AlertDialog alertDialog = builder.create();
-                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
-                    @Override
-                    public void onShow(DialogInterface dialog) {
-                        // 확인 버튼에 스타일 적용
-                        Button positiveButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
-                        positiveButton.setTextColor(getResources().getColor(R.color.sub_color));
-
-                        // 팝업 창 배경색 변경
-                        Window window = alertDialog.getWindow();
-                        if (window != null) {
-                            window.setBackgroundDrawableResource(Integer.parseInt("#000000"));
-                        }
-                    }
-                });
             }
         });
 

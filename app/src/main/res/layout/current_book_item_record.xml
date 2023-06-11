@@ -6,136 +6,147 @@
     android:layout_marginHorizontal="10dp"
     android:layout_marginBottom="10dp">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="137dp"
-        android:src="@drawable/img_1"
-        android:id="@+id/BookImgView"
-        android:layout_marginTop="2dp"/>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_marginLeft="100dp"
-        android:orientation="vertical"
-        >
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:gravity="center_vertical"
-            android:text="스즈메의 문단속"
-            android:textSize="20dp"
-            android:fontFamily="@font/calibrib"
-            android:textColor="@color/book_name_color"
-            android:id="@+id/bookName"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:gravity="center_vertical"
-            android:text="신카이 마코토"
-            android:textSize="15dp"
-            android:fontFamily="@font/calibrib"
-            android:textColor="@color/book_data_color"
-            android:id="@+id/bookWriter"/>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@drawable/img_1"
+            android:id="@+id/BookImgView"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginVertical="6dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:gravity="center_vertical"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="3dp"
-                android:text="읽은 날짜"
-                android:textSize="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="스즈메의 문단속스즈메의 문단속스즈메의 문단속스즈메의 문단속스즈메의 문단속"
+                android:textSize="20dp"
                 android:fontFamily="@font/calibrib"
-                android:textColor="@color/book_info_color" />
+                android:textColor="@color/book_name_color"
+                android:id="@+id/bookName"
+                android:maxLines="2"
+                android:ellipsize="end"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:gravity="center_vertical"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="3dp"
-                android:text="2022.04.20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="신카이 마코토신카이 마코토신카이 마코토신카이 마코토신카이 마코토신카이 마코토"
                 android:textSize="15dp"
                 android:fontFamily="@font/calibrib"
                 android:textColor="@color/book_data_color"
-                android:id="@+id/readDate"/>
+                android:id="@+id/bookWriter"
+                android:maxLines="2"
+                android:ellipsize="end"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:gravity="center_vertical"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="3dp"
-                android:text="내 평점"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="한빛"
                 android:textSize="15dp"
                 android:fontFamily="@font/calibrib"
-                android:textColor="@color/book_info_color" />
+                android:textColor="@color/book_data_color"
+                android:id="@+id/bookPub"
+                android:maxLines="1"
+                android:ellipsize="end"/>
 
-            <RatingBar
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                style="@style/Widget.AppCompat.RatingBar.Small"
-                android:stepSize="0.5"
-                android:numStars="5"
-                android:progressTint="@color/book_rating_color"
-                android:rating="4.5"
-                android:id="@+id/rating"/>
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="5dp"
+                    android:text="읽은 날짜"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/calibrib"
+                    android:textColor="@color/book_info_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="5dp"
+                    android:text="2022.04.20"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/calibrib"
+                    android:textColor="@color/book_data_color"
+                    android:id="@+id/readDate" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginRight="5dp"
+                    android:text="내 평점"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/calibrib"
+                    android:textColor="@color/book_info_color" />
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="1dp"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:stepSize="0.5"
+                    android:numStars="5"
+                    android:progressTint="@color/book_rating_color"
+                    android:rating="4.5"
+                    android:id="@+id/rating"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="10dp"
+                    android:text="120 / 330 페이지"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/calibrib"
+                    android:textColor="@color/book_info_color"
+                    android:id="@+id/readPage"/>
+
+                <ProgressBar
+                    android:layout_width="110dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="5dp"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:max="330"
+                    android:progress="120"
+                    android:progressTint="@color/progressBar_color"
+                    android:scaleY="4"
+                    android:id="@+id/progressBar"
+                    android:layout_marginTop="2dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:text="100%"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/calibrib"
+                    android:textColor="@color/book_info_color"
+                    android:id="@+id/readPercent" />
+
+            </LinearLayout>
+
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:gravity="center_vertical"
-                android:layout_marginRight="10dp"
-                android:text="120 / 330 페이지"
-                android:textSize="15dp"
-                android:fontFamily="@font/calibrib"
-                android:textColor="@color/book_info_color"
-                android:id="@+id/readPage"/>
-
-            <ProgressBar
-                android:layout_width="110dp"
-                android:layout_height="30dp"
-                android:layout_marginRight="10dp"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:max="330"
-                android:progress="120"
-                android:progressTint="@color/progressBar_color"
-                android:scaleY="4"
-                android:id="@+id/progressBar"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:gravity="center_vertical"
-                android:layout_marginRight="10dp"
-                android:text="100%"
-                android:textSize="15dp"
-                android:fontFamily="@font/calibrib"
-                android:textColor="@color/book_info_color"
-                android:id="@+id/readPercent"/>
-
-        </LinearLayout>
-
     </LinearLayout>
-
-
-
-
 </RelativeLayout>

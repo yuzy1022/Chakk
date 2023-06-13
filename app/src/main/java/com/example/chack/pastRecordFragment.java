@@ -79,7 +79,7 @@ public class pastRecordFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(ct, RecyclerView.VERTICAL, false));
 
         //리사이클러 뷰에 객체 10개 생성해 줌 (추후 서재에 있는 책 목록으로 객체 생성 하게끔 수정 필요)
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 2; i++)
         {
             BookItemRecord item = new BookItemRecord();
             item.image = R.drawable.img_2;

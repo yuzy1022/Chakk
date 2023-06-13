@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "458391198799-rnv2f3a7otett84pkgikppcmoqfg9o27.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chack",
+            "certificate_hash": "e11e614ebccc2038ffd81d8ed89303f2f75ca25b"
+          }
+        },
+        {
           "client_id": "458391198799-274nku5pkkla2goabj5opv0fq7j5g9pt.apps.googleusercontent.com",
           "client_type": 3
         }

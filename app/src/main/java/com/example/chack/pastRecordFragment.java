@@ -69,7 +69,7 @@ public class pastRecordFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        Context ct = container.getContext(); //프래그먼트의 context
+        Context ct = this.getContext(); //프래그먼트의 context
         View v =  inflater.inflate(R.layout.fragment_past_record, container, false); //프래그먼트 레이아웃(xml)을 가져와 뷰객체 생성
 
         //생성한 뷰객체를 이용해 리사이클러뷰를 초기화
@@ -79,17 +79,32 @@ public class pastRecordFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(ct, RecyclerView.VERTICAL, false));
 
         //리사이클러 뷰에 객체 10개 생성해 줌 (추후 서재에 있는 책 목록으로 객체 생성 하게끔 수정 필요)
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 2; i++)
         {
             BookItemRecord item = new BookItemRecord();
             item.image = R.drawable.img_2;
             item.rating = 5;
             item.name = "세이노의 가르침";
             item.writer = "세이노";
+            item.isbn13 = "9791168473690";
             item.setStartingDate(2023, 4, 20);
             item.setEndDate(2023, 4, 26);
+            item.pub = "데이원";
             adapter.setArrayData(item);
         }
+
+        //커스텀 이벤트 리스너 객체를 생성하여 어댑터에 전달
+        adapter.setOnItemClickListener(new AddBookFragAdapter.OnItemClickListener()
+        {
+            //아이템 클릭시
+            @Override
+            public void onItemClick(View v, int position)
+            {
+                DataClass.searchText = adapter.getItemPosition(position).isbn13;
+                //addBookFragment생성
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame, new addBookFragment()).commitAllowingStateLoss();
+            }
+        });
 
         recyclerView.setAdapter(adapter);  //리사이클러 뷰에 어댑터 설정
 
@@ -97,34 +112,15 @@ public class pastRecordFragment extends Fragment {
     }
 }
 
-//읽은책 프래그먼트 리사이클러뷰 뷰홀더 클래스
-class PastRecFragViewHolder extends RecyclerView.ViewHolder
-{
 
-    public ImageView image;
-    public TextView name, writer, date;
-    public RatingBar rating;
-
-    //생성자
-    PastRecFragViewHolder(Context context, View itemView)
-    {
-        super(itemView);
-
-        //책이미지, 이름, 작가, 날짜, 레이팅바 인플레이트
-        image = itemView.findViewById(R.id.BookImgView);
-        name = itemView.findViewById(R.id.bookName);
-        writer = itemView.findViewById(R.id.bookWriter);
-        date = itemView.findViewById(R.id.readDate);
-        rating = itemView.findViewById(R.id.rating);
-    }
-}
 
 
 //읽은책 프래그먼트 리사이클러뷰의 어댑터 클래스
-class PastRecFragAdapter extends RecyclerView.Adapter<PastRecFragViewHolder>
+class PastRecFragAdapter extends RecyclerView.Adapter<PastRecFragAdapter.PastRecFragViewHolder>
 {
-    //읽은 책 정보를 담아놓을 리스트
-    private ArrayList<BookItemRecord> arrayList;
+
+    private ArrayList<BookItemRecord> arrayList;  //읽은 책 정보를 담아놓을 리스트
+    private AddBookFragAdapter.OnItemClickListener mListener = null; //setOnItemClickListener메소드로 전달된 객체를 저장할 변수(mListener)
 
     //생성자
     public PastRecFragAdapter()
@@ -155,6 +151,7 @@ class PastRecFragAdapter extends RecyclerView.Adapter<PastRecFragViewHolder>
         holder.writer.setText(item.writer);  //가져온 텍스트로 작가 설정
         holder.date.setText(item.getStartingDate() + " ~ " + item.getEndDate());  //날짜 설정
         holder.rating.setRating(item.rating);  //가져온 평점으로 평점 설정
+        holder.pub.setText(item.pub); //출판사 설정
     }
 
     //이미지소스 리스트의 개수를 리턴해주는 메소드
@@ -163,9 +160,68 @@ class PastRecFragAdapter extends RecyclerView.Adapter<PastRecFragViewHolder>
         return  arrayList.size();
     }
 
+    //position을 입력받아 해당 위치의 아이템 정보를 리턴해줌
+    public BookItemRecord getItemPosition(int pos)
+    {
+        return arrayList.get(pos);
+    }
+
     //이미지소스 리스트에 새로운 소스를 추가해주는 메소드
     public void setArrayData(BookItemRecord data)
     {
         arrayList.add(data);
+    }
+
+    //커스텀 리스너 인터페이스 정의
+    public interface OnItemClickListener
+    {
+        void onItemClick(View v, int position);
+    }
+
+    //리스너 객체를 전달하는 메소드(setOnItemClickListener)
+    public void setOnItemClickListener(AddBookFragAdapter.OnItemClickListener listener)
+    {
+        this.mListener = listener;
+    }
+
+
+
+
+    //읽은책 프래그먼트 리사이클러뷰 뷰홀더 클래스
+    class PastRecFragViewHolder extends RecyclerView.ViewHolder
+    {
+
+        public ImageView image;
+        public TextView name, writer, date, pub;
+        public RatingBar rating;
+
+        //생성자
+        PastRecFragViewHolder(Context context, View itemView)
+        {
+            super(itemView);
+
+            //책이미지, 이름, 작가, 날짜, 레이팅바 인플레이트
+            image = itemView.findViewById(R.id.BookImgView);
+            name = itemView.findViewById(R.id.bookName);
+            writer = itemView.findViewById(R.id.bookWriter);
+            date = itemView.findViewById(R.id.readDate);
+            rating = itemView.findViewById(R.id.rating);
+            pub = itemView.findViewById(R.id.bookPub);
+
+            //리사이클러뷰의 아이템 클릭 이벤트 (클릭하면 addbook 프래그먼트 생성하게끔)
+            itemView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    int pos = getAdapterPosition(); //어댑터 내 아이템의 위치를 리턴해주는 메소드
+                    if (pos != RecyclerView.NO_POSITION)
+                    {
+                        if(mListener != null)
+                            mListener.onItemClick(v, pos);
+                    }
+                }
+            });
+        }
     }
 }

@@ -19,15 +19,19 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout frame;
     BottomNavigationView bottomNavigationView;
     String nickname; // nickname 멤버 변수 추가
+    public static MainActivity main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        main = this;
+
         // 인텐트로부터 nickname 값을 받아옴
         Intent intent = getIntent();
         nickname = intent.getStringExtra("nickname");
+
 
         init(); //네비게이션 버튼, 객체 생성
         SettingListener(); //네비게이션 버튼 설정
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //asd
     //test
+
 
     private void init() {
         frame = findViewById(R.id.frame);
@@ -83,6 +88,11 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 }
+                case R.id.tab_barcode:{
+                    Intent intent = new Intent(main,BarcodeScan.class); //fragment라서 activity intent와는 다른 방식
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);         // 프래그먼트 > 액티비티 화면전환 성공
+                    startActivity(intent);
+                }
             }
 
             return false;
@@ -94,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         if (index == 0) {//0일 경우 홈화면으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new homeFragment()).commitAllowingStateLoss();
         } else if (index == 1) {//1일 경우 서가검색으로
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame, new addBookFragment()).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame, new searchBookFragment()).commitAllowingStateLoss();
         } else if (index == 2) {//2일 경우 SNS검색으로
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new snsFragment()).commitAllowingStateLoss();
         } else if (index == 3) {//3일 경우 SNS 글 작성으로

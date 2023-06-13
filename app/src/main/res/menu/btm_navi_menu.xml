@@ -15,18 +15,18 @@
     <item
         android:id="@+id/tab_sns"
         android:enabled="true"
-        android:icon="@drawable/usersalt"
-        android:title="커뮤니티"/>
+        android:icon="@drawable/sns"
+        android:title="모두의 책장"/>
     <item
         android:id="@+id/tab_record"
         android:enabled="true"
-        android:icon="@drawable/recordicon"
+        android:icon="@drawable/record"
         android:title="내 서재" />
 
     <item
         android:id="@+id/tab_profile"
         android:enabled="true"
-        android:icon="@drawable/user"
-        android:title="프로필" />
+        android:icon="@drawable/setting"
+        android:title="설정" />
 
 </menu>

@@ -69,7 +69,7 @@ public class currentRecordFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        Context ct = container.getContext(); //프래그먼트의 context
+        Context ct = this.getContext(); //프래그먼트의 context
         View v = inflater.inflate(R.layout.fragment_current_record, container, false);
 
         //생성한 뷰객체를 이용해 리사이클러뷰를 초기화
@@ -89,8 +89,23 @@ public class currentRecordFragment extends Fragment {
             item.setStartingDate(2023, 4, 1);
             item.bookPage = 330;
             item.readPage = 120;
+            item.isbn13 = "9791169791977";
+            item.pub = "대원씨아이(단행본)";
             adapter.setArrayData(item);
         }
+
+        //커스텀 이벤트 리스너 객체를 생성하여 어댑터에 전달
+        adapter.setOnItemClickListener(new AddBookFragAdapter.OnItemClickListener()
+        {
+            //아이템 클릭시
+            @Override
+            public void onItemClick(View v, int position)
+            {
+                DataClass.searchText = adapter.getItemPosition(position).isbn13;
+                //addBookFragment생성
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame, new addBookFragment()).commitAllowingStateLoss();
+            }
+        });
 
         recyclerView.setAdapter(adapter);  //리사이클러 뷰에 어댑터 설정
 
@@ -99,38 +114,15 @@ public class currentRecordFragment extends Fragment {
 }
 
 
-//읽고있는 책 프래그먼트 리사이클러뷰 뷰홀더 클래스
-class CurrentRecFragViewHolder extends RecyclerView.ViewHolder
-{
 
-    public ImageView image;
-    public TextView name, writer, date, readPage, readPercent;
-    public RatingBar rating;
-    public ProgressBar progressBar;
-
-    //생성자
-    CurrentRecFragViewHolder(Context context, View itemView)
-    {
-        super(itemView);
-
-        //책이미지, 이름, 작가, 날짜, 레이팅바, 읽은 페이지, 읽은 %, 프로그레스바 인플레이트
-        image = itemView.findViewById(R.id.BookImgView);
-        name = itemView.findViewById(R.id.bookName);
-        writer = itemView.findViewById(R.id.bookWriter);
-        date = itemView.findViewById(R.id.readDate);
-        rating = itemView.findViewById(R.id.rating);
-        readPage = itemView.findViewById(R.id.readPage);
-        readPercent = itemView.findViewById(R.id.readPercent);
-        progressBar = itemView.findViewById(R.id.progressBar);
-    }
-}
 
 
 //읽고있는책 프래그먼트 리사이클러뷰의 어댑터 클래스
-class CurrentRecFragAdapter extends RecyclerView.Adapter<CurrentRecFragViewHolder>
+class CurrentRecFragAdapter extends RecyclerView.Adapter<CurrentRecFragAdapter.CurrentRecFragViewHolder>
 {
-    //책과 사용자 정보를 담아놓을 리스트
-    private ArrayList<BookItemRecord> arrayList;
+
+    private ArrayList<BookItemRecord> arrayList; //책과 사용자 정보를 담아놓을 리스트
+    private AddBookFragAdapter.OnItemClickListener mListener = null; //setOnItemClickListener메소드로 전달된 객체를 저장할 변수(mListener)
 
     //생성자
     public CurrentRecFragAdapter()
@@ -165,6 +157,7 @@ class CurrentRecFragAdapter extends RecyclerView.Adapter<CurrentRecFragViewHolde
         holder.progressBar.setMax(item.bookPage);  //프로그래스바 최대값을 책 페이지로 설정
         holder.progressBar.setProgress(item.readPage);  //프로그래스바 진행률을 읽은 페이지 수로 설정
         holder.readPercent.setText((int)((double)item.readPage / item.bookPage * 100) + "%"); //읽은 % 설정
+        holder.pub.setText(item.pub); //출판사 설정
     }
 
     //이미지소스 리스트의 개수를 리턴해주는 메소드
@@ -177,5 +170,68 @@ class CurrentRecFragAdapter extends RecyclerView.Adapter<CurrentRecFragViewHolde
     public void setArrayData(BookItemRecord data)
     {
         arrayList.add(data);
+    }
+
+    //커스텀 리스너 인터페이스 정의
+    public interface OnItemClickListener
+    {
+        void onItemClick(View v, int position);
+    }
+
+    //리스너 객체를 전달하는 메소드(setOnItemClickListener)
+    public void setOnItemClickListener(AddBookFragAdapter.OnItemClickListener listener)
+    {
+        this.mListener = listener;
+    }
+
+    //position을 입력받아 해당 위치의 아이템 정보를 리턴해줌
+    public BookItemRecord getItemPosition(int pos)
+    {
+        return arrayList.get(pos);
+    }
+
+
+
+
+    //읽고있는 책 프래그먼트 리사이클러뷰 뷰홀더 클래스
+    class CurrentRecFragViewHolder extends RecyclerView.ViewHolder
+    {
+
+        public ImageView image;
+        public TextView name, writer, date, readPage, readPercent, pub;
+        public RatingBar rating;
+        public ProgressBar progressBar;
+
+        //생성자
+        CurrentRecFragViewHolder(Context context, View itemView)
+        {
+            super(itemView);
+
+            //책이미지, 이름, 작가, 날짜, 레이팅바, 읽은 페이지, 읽은 %, 프로그레스바 인플레이트
+            image = itemView.findViewById(R.id.BookImgView);
+            name = itemView.findViewById(R.id.bookName);
+            writer = itemView.findViewById(R.id.bookWriter);
+            date = itemView.findViewById(R.id.readDate);
+            rating = itemView.findViewById(R.id.rating);
+            readPage = itemView.findViewById(R.id.readPage);
+            readPercent = itemView.findViewById(R.id.readPercent);
+            progressBar = itemView.findViewById(R.id.progressBar);
+            pub = itemView.findViewById(R.id.bookPub);
+
+            //리사이클러뷰의 아이템 클릭 이벤트 (클릭하면 addbook 프래그먼트 생성하게끔)
+            itemView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    int pos = getAdapterPosition(); //어댑터 내 아이템의 위치를 리턴해주는 메소드
+                    if (pos != RecyclerView.NO_POSITION)
+                    {
+                        if(mListener != null)
+                            mListener.onItemClick(v, pos);
+                    }
+                }
+            });
+        }
     }
 }

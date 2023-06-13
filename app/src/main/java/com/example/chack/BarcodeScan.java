@@ -1,13 +1,18 @@
 package com.example.chack;
 
+import static com.google.android.material.internal.ContextUtils.getActivity;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.app.Activity;
+import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Surface;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -21,6 +26,7 @@ import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,8 +44,9 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.zip.Inflater;
 
-public class BarcodeScan extends AppCompatActivity {
+public class BarcodeScan extends FragmentActivity {
 
     private PreviewView mPreviewView;
     private ListenableFuture cameraProviderFuture;
@@ -53,7 +60,6 @@ public class BarcodeScan extends AppCompatActivity {
         setContentView(R.layout.barcode_scanner);
 
         init();
-
     }
 
     private void init(){
@@ -160,10 +166,33 @@ public class BarcodeScan extends AppCompatActivity {
                     String isbn ;
                     isbn = barcode.getRawValue();
                     Toast.makeText(this, isbn, Toast.LENGTH_SHORT).show();
+                    DataClass.searchText = isbn;
+                    MainActivity.main.onFragmentChange(1);
+                    searchBookFragment.addBookfragment();
+                    this.finish();
 
                     cameraExecutor.shutdownNow();
                     break;
 
+                case Barcode.TYPE_WIFI:
+                    Toast.makeText(this, "wifi", Toast.LENGTH_SHORT).show();
+
+
+                    String ssid = barcode.getWifi().getSsid();
+                    String password = barcode.getWifi().getPassword();
+                    int type = barcode.getWifi().getEncryptionType();
+
+                    cameraExecutor.shutdownNow();
+
+                    break;
+                case Barcode.TYPE_URL:
+                    Toast.makeText(this, "url", Toast.LENGTH_SHORT).show();
+                    String title = barcode.getUrl().getTitle();
+                    String url = barcode.getUrl().getUrl();
+
+                    cameraExecutor.shutdownNow();
+
+                    break;
             }
         }
     }
@@ -200,13 +229,5 @@ public class BarcodeScan extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         closeCamera();
-    }
-
-    // 뒤로가기시 메인액티비티로 (이거없으면 뒤로가기시 네비게이션에 바코드선택되어있음)
-    public void onBackPressed(){
-        super.onBackPressed();
-        Intent intent = new Intent(BarcodeScan.this,MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 }

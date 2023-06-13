@@ -37,10 +37,12 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.7.0'
+    //implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.fragment:fragment:1.4.1'
+    implementation 'com.google.firebase:firebase-database:20.2.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -50,6 +52,10 @@ dependencies {
     implementation 'androidx.preference:preference:1.2.0'
     implementation 'com.android.volley:volley:1.2.1'
 
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.3.0'
+    implementation 'com.google.firebase:firebase-database-ktx:20.2.2'
+    implementation 'androidx.viewpager:viewpager:1.1.0-alpha01'
+    implementation 'com.google.android.recaptcha:recaptcha:18.2.1'
     //ML kit
     implementation 'com.google.mlkit:barcode-scanning:17.1.0'
     def camerax_version = "1.0.1"
@@ -77,4 +83,8 @@ dependencies {
     //url로 이미지 표시하기 위한것
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    def lifecycle_version = "2.6.1"
+    def arch_version = "2.2.0"
 }

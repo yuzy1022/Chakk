@@ -34,13 +34,13 @@
             >
             <TextView
                 android:id="@+id/profileName"
-                android:layout_width="66.667dp"
+                android:layout_width="70dp"
                 android:layout_height="18dp"
                 android:text="프로필이름"
                 />
             <TextView
                 android:id="@+id/profileId"
-                android:layout_width="66.667dp"
+                android:layout_width="70dp"
                 android:layout_height="18dp"
                 android:text="ID"
                 />

@@ -124,11 +124,11 @@ public class addBookFragment extends Fragment {
             {
                 switch(position)
                 {
-                    case 0: tab.setText("읽은 책");
+                    case 0: tab.setText("과거");
                             break;
-                    case 1: tab.setText("읽고있는 책");
+                    case 1: tab.setText("현재");
                             break;
-                    case 2: tab.setText("읽고싶은 책");
+                    case 2: tab.setText("미래");
                 }
             }
         }).attach();

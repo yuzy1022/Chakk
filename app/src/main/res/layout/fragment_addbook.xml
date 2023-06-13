@@ -52,19 +52,19 @@
                 android:id="@+id/past"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="읽은 책" />
+                android:text="과거" />
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/current"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="읽고 있는 책" />
+                android:text="현재" />
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/future"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="읽고 싶은 책" />
+                android:text="미래" />
 
         </com.google.android.material.tabs.TabLayout>
 

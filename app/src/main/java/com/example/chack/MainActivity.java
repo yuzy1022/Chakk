@@ -17,7 +17,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     FrameLayout frame;
-    ImageButton tab_barcode;
     BottomNavigationView bottomNavigationView;
     String nickname; // nickname 멤버 변수 추가
 
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         profileFragment fragment = profileFragment.newInstance(nickname);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, fragment);
         transaction.commit();
         //페이지마다 액션바 이름 바꾸기
 
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 case R.id.tab_profile: {
-                    Intent intent = new Intent(MainActivity.this,SettingActivity.class);
+                    Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
                     startActivity(intent);
                     return true;
                 }

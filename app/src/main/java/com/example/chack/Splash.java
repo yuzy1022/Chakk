@@ -62,7 +62,7 @@ public class Splash extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 2000); // 2초 후 메인액티비티 실행
+        }, 3500); // 2초 후 메인액티비티 실행
 
     }
 

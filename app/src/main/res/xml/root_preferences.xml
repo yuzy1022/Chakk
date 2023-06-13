@@ -5,11 +5,7 @@
     <!--프로필 설정-->
     <PreferenceCategory
         app:iconSpaceReserved="false"
-        app:title="프로필 설정">
-        <Preference
-            app:key="profile_setting"
-            app:title="프로필 설정"
-            app:iconSpaceReserved="false"/>
+        app:title="계정 설정">
         <Preference
             app:iconSpaceReserved="false"
             app:key="iddelete"

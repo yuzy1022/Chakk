@@ -124,14 +124,6 @@ public class addBookPastFragment extends Fragment {
             }
         });
 
-        rating = v.findViewById(R.id.addrating);
-        ratingNum = v.findViewById(R.id.currendtday);
-        rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                ratingNum.setText(String.valueOf(rating));
-            }
-        });
 
         // Inflate the layout for this fragment
         return v;

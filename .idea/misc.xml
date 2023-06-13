@@ -56,12 +56,14 @@
         <entry key="..\:/Users/nnayu/Desktop/0422/chack/app/src/main/res/layout/fragment_home.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/nnayu/Desktop/0422/chack/app/src/main/res/layout/past_book_item_record.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/font/font.xml" value="0.1734375" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/activity_address.xml" value="0.1286231884057971" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/alarm_checkbox.xml" value="0.2989583333333333" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/barcode_scanner.xml" value="0.1" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/book_item_main.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/current_book_item_record.xml" value="0.1" />
-        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_addbook.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_addbook.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_current_addbook.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_current_record.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_future_addbook.xml" value="0.14322916666666666" />
@@ -70,12 +72,23 @@
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_memo_record.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_past_addbook.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_past_record.xml" value="0.14322916666666666" />
-        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_profile.xml" value="0.14322916666666666" />
-        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_sns.xml" value="0.1" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_profile.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/fragment_sns.xml" value="0.22" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/future_book_item_record.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/login.xml" value="0.1286231884057971" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/memo_item_record.xml" value="0.14322916666666666" />
-        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/menu/btm_navi_menu.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/popup_addbook.xml" value="0.15806159420289856" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/preferences.xml" value="0.1" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/setting.xml" value="0.1" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/setting_activity.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/layout/settings_activity.xml" value="0.1" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/menu/actionbar_actions.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/menu/btm_navi_menu.xml" value="0.1" />
         <entry key="..\:/Users/onkal/Chakk/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.153" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/xml/arrays.xml" value="0.2989583333333333" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/xml/root_preferences.xml" value="0.22" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/xml/root_preferenece.xml" value="0.1381340579710145" />
+        <entry key="..\:/Users/onkal/Chakk/app/src/main/res/xml/setting.xml" value="0.22" />
       </map>
     </option>
   </component>

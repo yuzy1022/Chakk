@@ -19,8 +19,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-// 스플래쉬(시작,로딩화면,권한허용)
-// 권한획득부분은 구현o 첫시작화면(아이콘뜨는거?는 아이콘이 없어서 아직 구현x)
 public class Splash extends AppCompatActivity {
 
 
@@ -44,7 +42,7 @@ public class Splash extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         if (Build.VERSION.SDK_INT >= 23) { // 안드로이드 6.0 이상일 경우 퍼미션 체크
-           permission = checkPermissions();
+            permission = checkPermissions();
             nextActivity();
         }else{
            nextActivity();
@@ -64,7 +62,7 @@ public class Splash extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 3000); // 3초 후 메인액티비티 실행
+        }, 3500); // 2초 후 메인액티비티 실행
 
     }
 

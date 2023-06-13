@@ -3,6 +3,7 @@ package com.example.chack;
 import static com.google.android.material.internal.ContextUtils.getActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;

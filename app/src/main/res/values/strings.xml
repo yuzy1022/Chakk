@@ -15,7 +15,7 @@
     <string name="actionHomeName">홈</string>
     <string name="actionSnsName">모두의 책장</string>
     <string name="actionRecordName">내 서재</string>
-    <string name="actionProfileName">프로필</string>
+    <string name="actionProfileName">설정</string>
 
     <!--popupaddbook의 string-->
     <string name="popupbook">도서정보</string>

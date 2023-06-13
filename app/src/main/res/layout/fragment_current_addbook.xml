@@ -48,11 +48,12 @@
                     android:textColor="#000000"
                     android:textSize="15sp" />
                 <TextView
+                    android:id="@+id/currendtday"
                     android:layout_width="150dp"
                     android:layout_height="40dp"
                     android:textSize="15sp"
                     android:gravity="center"
-                    android:text="OO일 째 읽고 있어요"
+                    android:text="O일 째 읽고 있어요"
                     android:layout_marginLeft="30dp"/>
             </LinearLayout>
         </LinearLayout>

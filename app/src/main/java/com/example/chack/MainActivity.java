@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);         // 프래그먼트 > 액티비티 화면전환 성공
                     startActivity(intent);
                 }
-
             }
 
             return false;

@@ -14,9 +14,12 @@ import android.widget.Toast;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.chack.Login;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.kakao.sdk.user.UserApiClient;
@@ -185,18 +188,28 @@ public class profileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FirebaseUser currentUser = mAuth.getCurrentUser();
-                if (currentUser != null){
+                if (currentUser != null) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
-                    builder.setTitle("로그아웃").setMessage("로그아웃하시겠습니까?")
+                    builder.setTitle("계정 탈퇴").setMessage("정말로 계정 탈퇴하시겠습니까?")
                             .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    // 확인 버튼을 누를 경우 로그아웃 수행
-                                    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-                                    firebaseAuth.signOut();
-                                    Intent intent = new Intent(getActivity(), Login.class);
-                                    startActivity(intent);
-                                    requireActivity().finish();
+                                    // Firebase 계정 탈퇴 수행
+                                    currentUser.delete()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(getActivity(), "Firebase 계정이 성공적으로 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                                                        // Firebase 계정 삭제 후 로그인 화면으로 이동
+                                                        Intent intent = new Intent(getActivity(), Login.class);
+                                                        startActivity(intent);
+                                                        requireActivity().finish();
+                                                    } else {
+                                                        Toast.makeText(getActivity(), "Firebase 계정 삭제에 실패했습니다.", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
                                 }
                             })
                             .setNegativeButton("취소", new DialogInterface.OnClickListener() {

@@ -76,9 +76,9 @@ public class searchBookFragment extends Fragment {
         auto = view.findViewById(R.id.search_bar);
         search_button=view.findViewById(R.id.search_button);
         back_button=view.findViewById(R.id.back_button);
-        barcode_button = view.findViewById(R.id.barcode_button);
 
-        //바코드 버튼 클릭 시 이벤트
+
+        /*//바코드 버튼 클릭 시 이벤트
         barcode_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +86,7 @@ public class searchBookFragment extends Fragment {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);         // 프래그먼트 > 액티비티 화면전환 성공
                 startActivity(intent);
             }
-        });
+        });*/
 
         //뒤로가기 버튼 클릭 시 이벤트
         back_button.setOnClickListener(new View.OnClickListener() {

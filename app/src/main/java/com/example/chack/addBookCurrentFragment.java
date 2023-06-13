@@ -1,12 +1,15 @@
 package com.example.chack;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -31,20 +34,15 @@ public class addBookCurrentFragment extends Fragment {
     Calendar currentCalendar = Calendar.getInstance();
     DatePickerDialog currentDialog;
     Calendar maxDate = Calendar.getInstance(); //최대 날짜 지정
+    TextView currendtday;
+
+    long today, dday, resultdday;
+    int resultvalue=0;
 
     public addBookCurrentFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment profileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static addBookCurrentFragment newInstance(String param1, String param2) {
         addBookCurrentFragment fragment = new addBookCurrentFragment();
         Bundle args = new Bundle();
@@ -63,11 +61,13 @@ public class addBookCurrentFragment extends Fragment {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_current_addbook, container, false);
         currentDate = v.findViewById(R.id.currentDate);
+        currendtday = v.findViewById(R.id.currendtday);
         currentDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +80,11 @@ public class addBookCurrentFragment extends Fragment {
                                 currentCalendar.set(Calendar.MONTH, month);
                                 currentCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                                 updateLabel();
+                                today=maxDate.getTimeInMillis();
+                                dday=currentCalendar.getTimeInMillis();
+                                resultdday = (today - dday)/(24*60*60*1000);
+                                resultvalue = (int) resultdday;
+                                updateDday(resultvalue);
                             }
                         },
                         currentCalendar.get(Calendar.YEAR),
@@ -95,9 +100,21 @@ public class addBookCurrentFragment extends Fragment {
                 currentDialog.show();
             }
         });
+
         // Inflate the layout for this fragment
         return v;
     }
+
+    @SuppressLint("DefaultLocale")
+    private void updateDday(int resultvalue){
+        if(resultvalue>=0){
+            currendtday.setText(String.format("%d일 째 읽고 있어요",resultvalue));
+            Log.d("태그", "day : " + resultvalue);
+        }
+        else
+            currentDate.setText("다시 입력하세요");
+    }
+
     private void updateLabel() {
         String myFormat = "yyyy년 MM월 dd일";    // 출력형식   2023/06/01
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.KOREA);

@@ -1,12 +1,15 @@
 package com.example.chack;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -31,6 +34,10 @@ public class addBookFutureFragment extends Fragment {
     Calendar willCalendar = Calendar.getInstance();
     DatePickerDialog willDialog;
     Calendar minDate = Calendar.getInstance(); //최소 날짜 지정
+    TextView remainDay;
+
+    long today, dday, resultdday;
+    int resultvalue=0;
 
     public addBookFutureFragment() {
         // Required empty public constructor
@@ -67,6 +74,7 @@ public class addBookFutureFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_future_addbook, container, false);
+        remainDay = v.findViewById(R.id.remainDay);
         willDate = v.findViewById(R.id.willDate);
         willDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +88,11 @@ public class addBookFutureFragment extends Fragment {
                                 willCalendar.set(Calendar.MONTH, month);
                                 willCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                                 updateLabel();
+                                today=minDate.getTimeInMillis();
+                                dday=willCalendar.getTimeInMillis();
+                                resultdday = (today - dday)/(24*60*60*1000);
+                                resultvalue = (int) resultdday;
+                                updateDday(resultvalue);
                             }
                         },
                         willCalendar.get(Calendar.YEAR),
@@ -104,5 +117,16 @@ public class addBookFutureFragment extends Fragment {
 
         EditText willDate = (EditText) getView().findViewById(R.id.willDate);
         willDate.setText(sdf.format(willCalendar.getTime()));
+    }
+
+    @SuppressLint("DefaultLocale")
+    private void updateDday(int resultvalue){
+        resultvalue = -resultvalue;
+        if(resultvalue >= 0){
+            remainDay.setText(String.format("%d일 남았어요",resultvalue));
+            Log.d("태그", "day : " + resultvalue);
+        }
+        else
+            remainDay.setText("다시 입력하세요");
     }
 }

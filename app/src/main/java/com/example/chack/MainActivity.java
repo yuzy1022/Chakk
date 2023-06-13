@@ -88,11 +88,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 }
-                case R.id.tab_barcode:{
-                    Intent intent = new Intent(main,BarcodeScan.class); //fragment라서 activity intent와는 다른 방식
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);         // 프래그먼트 > 액티비티 화면전환 성공
-                    startActivity(intent);
-                }
             }
 
             return false;

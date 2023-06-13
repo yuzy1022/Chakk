@@ -16,7 +16,7 @@
         android:id="@+id/tab_sns"
         android:enabled="true"
         android:icon="@drawable/sns"
-        android:title="커뮤니티"/>
+        android:title="모두의 책장"/>
     <item
         android:id="@+id/tab_record"
         android:enabled="true"

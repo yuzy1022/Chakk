@@ -39,7 +39,8 @@
 
             </intent-filter>
         </activity>
-
+        <activity android:name=".Signup" />
+        <activity android:name=".Fblogin" />
         <activity
             android:name="com.example.chack.MainActivity"
             android:exported="true"

@@ -22,7 +22,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/chakk_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/chakk_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.chack"
         android:usesCleartextTraffic="true"
@@ -91,6 +91,7 @@
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
             android:value="barcode" />
+
 
     </application>
 

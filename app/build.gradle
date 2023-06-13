@@ -48,6 +48,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx:21.2.2'
     implementation 'com.google.firebase:firebase-database-ktx:20.2.1'
     implementation 'androidx.preference:preference:1.2.0'
+    implementation 'com.android.volley:volley:1.2.1'
 
     //ML kit
     implementation 'com.google.mlkit:barcode-scanning:17.1.0'

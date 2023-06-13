@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 case R.id.tab_profile: {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame, profileFragment.newInstance(nickname)).commit();
-                    getSupportActionBar().setTitle(R.string.actionProfileName);
+                    Intent intent = new Intent(MainActivity.this,SettingActivity.class);
+                    startActivity(intent);
                     return true;
                 }
             }

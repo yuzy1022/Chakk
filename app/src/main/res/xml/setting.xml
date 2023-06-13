@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+<!--설정창xml인데 자바포함해서 다른프로젝트에서 완성하고 넘어오겠음-->
+<androidx.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- 알림설정 -->
     <!-- alram에서 alram defaultValue="true" 이값이 true, false 여부에 따라
@@ -25,6 +27,9 @@
             android:title="읽고 싶은 책 알림"
             android:dependency="alram"/>
     </PreferenceCategory>
+    <PreferenceScreen
+        android:title="앱 정보"
+        android:summary="버전 1.0.0"/>
 
 
-</PreferenceScreen>
+</androidx.preference.PreferenceScreen>

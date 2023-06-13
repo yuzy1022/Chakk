@@ -17,6 +17,8 @@ import android.content.DialogInterface;
 import androidx.fragment.app.Fragment;
 
 import com.example.chack.Login;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.kakao.sdk.user.UserApiClient;
 
 import kotlin.Unit;
@@ -26,7 +28,7 @@ public class profileFragment extends Fragment {
 
     private TextView profileIdTextView;
     private String nickname;
-
+    private FirebaseAuth mAuth;
     public profileFragment() {
         // Required empty public constructor
     }
@@ -51,7 +53,7 @@ public class profileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-
+        mAuth = FirebaseAuth.getInstance();
         profileIdTextView = view.findViewById(R.id.profileId);
         if (nickname != null) {
             String profileId = "ID: " + nickname;
@@ -100,8 +102,30 @@ public class profileFragment extends Fragment {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 팝업 창을 띄웁니다.
-                if(nickname!=null){
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
+                    builder.setTitle("로그아웃").setMessage("로그아웃하시겠습니까?")
+                            .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // 확인 버튼을 누를 경우 로그아웃 수행
+                                    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                                    firebaseAuth.signOut();
+                                    Intent intent = new Intent(getActivity(), Login.class);
+                                    startActivity(intent);
+                                    requireActivity().finish();
+                                }
+                            })
+                            .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // 취소 버튼을 누를 경우 아무 동작 없이 팝업 닫기
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
+                }else if(nickname!=null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
                 builder.setTitle("로그아웃").setMessage("로그아웃하시겠습니까?")
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
@@ -160,8 +184,30 @@ public class profileFragment extends Fragment {
         accountRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 팝업 창을 띄웁니다.
-                if(nickname!=null){
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
+                    builder.setTitle("로그아웃").setMessage("로그아웃하시겠습니까?")
+                            .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // 확인 버튼을 누를 경우 로그아웃 수행
+                                    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                                    firebaseAuth.signOut();
+                                    Intent intent = new Intent(getActivity(), Login.class);
+                                    startActivity(intent);
+                                    requireActivity().finish();
+                                }
+                            })
+                            .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // 취소 버튼을 누를 경우 아무 동작 없이 팝업 닫기
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
+                }else if(nickname!=null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
                 builder.setTitle("계정 탈퇴").setMessage("정말로 계정 탈퇴하시겠습니까?")
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {

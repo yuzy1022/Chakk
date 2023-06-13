@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -42,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    //asd
+    //test
 
 
     private void init() {
@@ -63,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
                     getSupportActionBar().setTitle(R.string.fragHome);
                     return true;
                 }
+                case R.id.tab_barcode: {
+                    Intent intent = new Intent(MainActivity.this,BarcodeScan.class);
+                    startActivity(intent);
+                    return true;
+                }
                 case R.id.tab_sns: {
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, new snsFragment()).commit();
                     getSupportActionBar().setTitle(R.string.actionSnsName);
@@ -74,14 +84,9 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 case R.id.tab_profile: {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame, profileFragment.newInstance(nickname)).commit();
-                    getSupportActionBar().setTitle(R.string.actionProfileName);
-                    return true;
-                }
-                case R.id.tab_barcode:{
-                    Intent intent = new Intent(main,BarcodeScan.class); //fragment라서 activity intent와는 다른 방식
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);         // 프래그먼트 > 액티비티 화면전환 성공
+                    Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
                     startActivity(intent);
+                    return true;
                 }
             }
 

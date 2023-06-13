@@ -125,9 +125,9 @@ public class addBookFragment extends Fragment {
                 switch(position)
                 {
                     case 0: tab.setText("과거");
-                            break;
+                        break;
                     case 1: tab.setText("현재");
-                            break;
+                        break;
                     case 2: tab.setText("미래");
                 }
             }
@@ -221,4 +221,3 @@ class addBookViewPager2Adapter extends FragmentStateAdapter
         return 3;       // 페이지 수
     }
 }
-

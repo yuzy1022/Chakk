@@ -53,7 +53,8 @@
                     android:layout_height="40dp"
                     android:textSize="15sp"
                     android:text="OO일 남았어요"
-                    android:layout_marginLeft="30dp"/>
+                    android:layout_marginLeft="30dp"
+                    android:id="@+id/remainDay"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

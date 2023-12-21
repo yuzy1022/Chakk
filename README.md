@@ -3,16 +3,29 @@
 프로젝트의 목표는 신규 독서 인구를 양성하기 위해 독서를 장려하고 독서에 대한 흥미를 유발하여 꾸준한 독서 활동으로 이어지는 것과, 독서 커뮤니티를 활용하여 기존 독서 인구 또한 공략하는 것입니다.
 
 프로젝트 진행 기간 : 23.04 ~ 23.06
+<br>
 
 # 사용 기술 및 환경
-Java, Android Studio, Firebase
+SDK : <a href="https://developer.android.com/studio/releases/past-releases/as-dolphin-release-notes?hl=ko">Android Studio v2021.3.1</a>  
+Language : <a href="https://www.java.com/ko/">Java</a>  
+DB : <a href="https://firebase.google.com/?hl=ko">Firebase</a>  
+Open API : <a href="https://blog.aladin.co.kr/openapi/popup/6695306">알라딘 도서 API</a>, <a href="https://developers.google.com/ml-kit/vision/barcode-scanning?hl=ko">ML KIT API (바코드)</a>, <a href="https://postcode.map.daum.net/guide">카카오(다음) 주소 API</a>, <a href="https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api">카카오 로그인 API</a>
+<br>
 
 # DB 구조
+![ER diagram](https://github.com/yuzy1022/Chakk/assets/112682861/d3a56853-b898-4e4c-aada-ac0cd9fbf058)
+![릴레이션 스키마](https://github.com/yuzy1022/Chakk/assets/112682861/d475ba09-4670-4a2e-a06d-2a1162b02326)
+<br>
 
 # 화면 구성
 
 # 프로젝트 주요 이슈
-
+<a href="https://github.com/yuzy1022/Chakk/wiki/%EC%A3%BC%EC%9A%94-%EC%9D%B4%EC%8A%88#%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%A1%9C%EA%B7%B8%EC%9D%B8-api-%EB%B0%8F-%ED%8C%8C%EC%9D%B4%EC%96%B4%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85%EB%A1%9C%EA%B7%B8%EC%9D%B8">카카오 로그인 API 및 파이어베이스 회원가입/로그인</a>  
+<a href="https://github.com/yuzy1022/Chakk/wiki/%EC%A3%BC%EC%9A%94-%EC%9D%B4%EC%8A%88#%EC%95%8C%EB%9D%BC%EB%94%98-api">알라딘 API</a>  
+<a href="https://github.com/yuzy1022/Chakk/wiki/%EC%A3%BC%EC%9A%94-%EC%9D%B4%EC%8A%88#%EB%B0%94%EC%BD%94%EB%93%9C-api">바코드 API</a>  
+<a href="https://github.com/yuzy1022/Chakk/wiki/%EC%A3%BC%EC%9A%94-%EC%9D%B4%EC%8A%88#%EC%B9%B4%EC%B9%B4%EC%98%A4%EB%8B%A4%EC%9D%8C-%EC%A3%BC%EC%86%8C-api">카카오(다음) 주소 API</a>  
+<a href="https://github.com/yuzy1022/Chakk/wiki/%EC%A3%BC%EC%9A%94-%EC%9D%B4%EC%8A%88#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B2%A0%EC%9D%B4%EC%8A%A4">데이터 베이스</a>  
+<br>
 
 # 팀
 팀명 : Song's Parks  

@@ -35,3 +35,8 @@ Open API : <a href="https://blog.aladin.co.kr/openapi/popup/6695306">알라딘 �
 # 팀
 팀명 : Song's Parks  
 팀원 : <a href="https://github.com/yuzy1022">박상원</a>, <a href="https://github.com/DapsipniPotato">박재현</a>, <a href="https://github.com/onkalo1212">박찬호</a>, <a href="https://github.com/SongHyeongJin">송형진</a>
+<br>
+
+# 시연 영상
+[![Video Label](http://img.youtube.com/vi/j7Y64-_SKLw/0.jpg)](https://youtu.be/j7Y64-_SKLw)  
+음성 : 박재현

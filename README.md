@@ -17,7 +17,11 @@ Open API : <a href="https://blog.aladin.co.kr/openapi/popup/6695306">알라딘 �
 ![릴레이션 스키마](https://github.com/yuzy1022/Chakk/assets/112682861/d475ba09-4670-4a2e-a06d-2a1162b02326)
 <br>
 
-# 화면 구성
+# 화면 구성 및 세부 기능
+![UI](https://github.com/yuzy1022/Chakk/assets/112682861/5810509b-d2a7-457e-8442-3a81f0429fe1)  
+<br>
+<a href="https://github.com/yuzy1022/Chakk/wiki/%EC%84%B8%EB%B6%80-%EA%B8%B0%EB%8A%A5-%EC%84%A4%EB%AA%85">세부 기능</a>
+<br>
 
 # 프로젝트 주요 이슈
 <a href="https://github.com/yuzy1022/Chakk/wiki/%EC%A3%BC%EC%9A%94-%EC%9D%B4%EC%8A%88#%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%A1%9C%EA%B7%B8%EC%9D%B8-api-%EB%B0%8F-%ED%8C%8C%EC%9D%B4%EC%96%B4%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85%EB%A1%9C%EA%B7%B8%EC%9D%B8">카카오 로그인 API 및 파이어베이스 회원가입/로그인</a>  

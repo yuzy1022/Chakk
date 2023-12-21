@@ -16,4 +16,4 @@ Java, Android Studio, Firebase
 
 # 팀
 팀명 : Song's Parks  
-팀원 : 박상원, 박재현, 박찬호, 송형진
+팀원 : <a href="https://github.com/yuzy1022">박상원</a>, <a href="https://github.com/DapsipniPotato">박재현</a>, <a href="https://github.com/onkalo1212">박찬호</a>, <a href="https://github.com/SongHyeongJin">송형진</a>

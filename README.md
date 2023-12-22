@@ -8,7 +8,7 @@
 
 ------
 
-# 사용 기술 및 환경
+## 사용 기술 및 환경
 SDK : <a href="https://developer.android.com/studio/releases/past-releases/as-dolphin-release-notes?hl=ko">Android Studio v2021.3.1</a>  
 Language : <a href="https://www.java.com/ko/">Java</a>  
 DB : <a href="https://firebase.google.com/?hl=ko">Firebase</a>  
@@ -17,14 +17,14 @@ Open API : <a href="https://blog.aladin.co.kr/openapi/popup/6695306">알라딘 �
 
 ------
 
-# DB 구조
+## DB 구조
 ![ER diagram](https://github.com/yuzy1022/Chakk/assets/112682861/d3a56853-b898-4e4c-aada-ac0cd9fbf058)
 ![릴레이션 스키마](https://github.com/yuzy1022/Chakk/assets/112682861/d475ba09-4670-4a2e-a06d-2a1162b02326)
 <br>
 
 ------
 
-# 화면 구성 및 세부 기능
+## 화면 구성 및 세부 기능
 ![UI](https://github.com/yuzy1022/Chakk/assets/112682861/5810509b-d2a7-457e-8442-3a81f0429fe1)  
 <br>
 <a href="https://github.com/yuzy1022/Chakk/wiki/%EC%84%B8%EB%B6%80-%EA%B8%B0%EB%8A%A5-%EC%84%A4%EB%AA%85#%EB%A9%94%EC%9D%B8-%ED%99%94%EB%A9%B4">메인 화면</a>  
@@ -36,7 +36,7 @@ Open API : <a href="https://blog.aladin.co.kr/openapi/popup/6695306">알라딘 �
 
 ------
 
-# 프로젝트 주요 이슈
+## 프로젝트 주요 이슈
 <a href="https://github.com/yuzy1022/Chakk/wiki/%EC%A3%BC%EC%9A%94-%EC%9D%B4%EC%8A%88#%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%A1%9C%EA%B7%B8%EC%9D%B8-api-%EB%B0%8F-%ED%8C%8C%EC%9D%B4%EC%96%B4%EB%B2%A0%EC%9D%B4%EC%8A%A4-%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85%EB%A1%9C%EA%B7%B8%EC%9D%B8">카카오 로그인 API 및 파이어베이스 회원가입/로그인</a>  
 <a href="https://github.com/yuzy1022/Chakk/wiki/%EC%A3%BC%EC%9A%94-%EC%9D%B4%EC%8A%88#%EC%95%8C%EB%9D%BC%EB%94%98-api">알라딘 API</a>  
 <a href="https://github.com/yuzy1022/Chakk/wiki/%EC%A3%BC%EC%9A%94-%EC%9D%B4%EC%8A%88#%EB%B0%94%EC%BD%94%EB%93%9C-api">바코드 API</a>  
@@ -46,13 +46,13 @@ Open API : <a href="https://blog.aladin.co.kr/openapi/popup/6695306">알라딘 �
 
 ------
 
-# 팀
+## 팀
 팀명 : Song's Parks  
 팀원 : <a href="https://github.com/yuzy1022">박상원</a>, <a href="https://github.com/DapsipniPotato">박재현</a>, <a href="https://github.com/onkalo1212">박찬호</a>, <a href="https://github.com/SongHyeongJin">송형진</a>
 <br>
 
 ------
 
-# 시연 영상
+## 시연 영상
 [![Video Label](http://img.youtube.com/vi/j7Y64-_SKLw/0.jpg)](https://youtu.be/j7Y64-_SKLw)  
 음성 : 박재현

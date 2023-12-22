@@ -21,7 +21,11 @@ Open API : <a href="https://blog.aladin.co.kr/openapi/popup/6695306">알라딘 �
 # 화면 구성 및 세부 기능
 ![UI](https://github.com/yuzy1022/Chakk/assets/112682861/5810509b-d2a7-457e-8442-3a81f0429fe1)  
 <br>
-<a href="https://github.com/yuzy1022/Chakk/wiki/%EC%84%B8%EB%B6%80-%EA%B8%B0%EB%8A%A5-%EC%84%A4%EB%AA%85">세부 기능</a>
+<a href="https://github.com/yuzy1022/Chakk/wiki/%EC%84%B8%EB%B6%80-%EA%B8%B0%EB%8A%A5-%EC%84%A4%EB%AA%85#%EB%A9%94%EC%9D%B8-%ED%99%94%EB%A9%B4">메인 화면</a>  
+<a href="https://github.com/yuzy1022/Chakk/wiki/%EC%84%B8%EB%B6%80-%EA%B8%B0%EB%8A%A5-%EC%84%A4%EB%AA%85#%EB%8F%84%EC%84%9C-%EA%B2%80%EC%83%89">도서 검색</a>  
+<a href="https://github.com/yuzy1022/Chakk/wiki/%EC%84%B8%EB%B6%80-%EA%B8%B0%EB%8A%A5-%EC%84%A4%EB%AA%85#%EC%84%9C%EA%B0%80-%EC%B1%84%EC%9A%B0%EA%B8%B0">서가 채우기</a>  
+<a href="https://github.com/yuzy1022/Chakk/wiki/%EC%84%B8%EB%B6%80-%EA%B8%B0%EB%8A%A5-%EC%84%A4%EB%AA%85#%EB%8F%84%EC%84%9C-sns">도서 SNS</a>  
+<a href="https://github.com/yuzy1022/Chakk/wiki/%EC%84%B8%EB%B6%80-%EA%B8%B0%EB%8A%A5-%EC%84%A4%EB%AA%85#%EB%82%B4-%EC%84%9C%EC%9E%AC>내 서재</a>  
 <br>
 
 # 프로젝트 주요 이슈

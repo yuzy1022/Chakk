@@ -105,10 +105,10 @@ public class homeFragment extends Fragment {
         currentAdt.setArrayData(R.drawable.img_1);
         currentAdt.setArrayData(R.drawable.img_7);
         pastAdt.setArrayData(R.drawable.img_2);
-        futureAdt.setArrayData(R.drawable.img_3);
-        futureAdt.setArrayData(R.drawable.img_4);
-        futureAdt.setArrayData(R.drawable.img_5);
-        futureAdt.setArrayData(R.drawable.img_6);
+        pastAdt.setArrayData(R.drawable.img_6);
+        pastAdt.setArrayData(R.drawable.img_5);
+        pastAdt.setArrayData(R.drawable.img_4);
+        futureAdt.setArrayData(R.drawable.img_8);
 
 
 

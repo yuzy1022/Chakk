@@ -79,7 +79,8 @@ public class pastRecordFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(ct, RecyclerView.VERTICAL, false));
 
         //리사이클러 뷰에 객체 10개 생성해 줌 (추후 서재에 있는 책 목록으로 객체 생성 하게끔 수정 필요)
-        for(int i = 0; i < 2; i++)
+        /*
+        for(int i = 0; i < 1; i++)
         {
             BookItemRecord item = new BookItemRecord();
             item.image = R.drawable.img_2;
@@ -92,6 +93,50 @@ public class pastRecordFragment extends Fragment {
             item.pub = "데이원";
             adapter.setArrayData(item);
         }
+         */
+        BookItemRecord item = new BookItemRecord();
+        item.image = R.drawable.img_2;
+        item.rating = 5;
+        item.name = "세이노의 가르침";
+        item.writer = "세이노";
+        item.isbn13 = "9791168473690";
+        item.setStartingDate(2023, 4, 20);
+        item.setEndDate(2023, 4, 26);
+        item.pub = "데이원";
+        adapter.setArrayData(item);
+
+        BookItemRecord item2 = new BookItemRecord();
+        item2.image = R.drawable.img_6;
+        item2.rating = (float)4.5;
+        item2.name = "메리골드 마음 세탁소";
+        item2.writer = "윤정은";
+        item2.isbn13 = "9791191891287";
+        item2.setStartingDate(2023, 3, 10);
+        item2.setEndDate(2023, 3, 19);
+        item2.pub = "북로망스";
+        adapter.setArrayData(item2);
+
+        BookItemRecord item3 = new BookItemRecord();
+        item3.image = R.drawable.img_5;
+        item3.rating = (float)4;
+        item3.name = "데일 카네기 인간 관계론";
+        item3.writer = "데일 카네기";
+        item3.isbn13 = "9788960542518";
+        item3.setStartingDate(2023, 3, 28);
+        item3.setEndDate(2023, 4, 6);
+        item3.pub = "중앙경제평론사";
+        adapter.setArrayData(item3);
+
+        BookItemRecord item4 = new BookItemRecord();
+        item4.image = R.drawable.img_4;
+        item4.rating = (float)3.5;
+        item4.name = "THE WOK 더 웍 - 웍으로 이어가는 주방 과학의 모든 것";
+        item4.writer = "J. 켄지 로페즈 알트 (지은이),셰프크루 (옮긴이)";
+        item4.isbn13 = "9788931466164";
+        item4.setStartingDate(2023, 4, 7);
+        item4.setEndDate(2023, 4, 11);
+        item4.pub = "영진.com(영진닷컴)";
+        adapter.setArrayData(item4);
 
         //커스텀 이벤트 리스너 객체를 생성하여 어댑터에 전달
         adapter.setOnItemClickListener(new AddBookFragAdapter.OnItemClickListener()

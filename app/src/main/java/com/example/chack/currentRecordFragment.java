@@ -79,6 +79,7 @@ public class currentRecordFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(ct, RecyclerView.VERTICAL, false));
 
         //리사이클러 뷰에 객체 10개 생성해 줌 (추후 서재에 있는 책 목록으로 객체 생성 하게끔 수정 필요)
+        /*
         for(int i = 0; i < 10; i++)
         {
             BookItemRecord item = new BookItemRecord();
@@ -93,6 +94,30 @@ public class currentRecordFragment extends Fragment {
             item.pub = "대원씨아이(단행본)";
             adapter.setArrayData(item);
         }
+        */
+        BookItemRecord item1 = new BookItemRecord();
+        item1.image = R.drawable.img_1;
+        item1.rating = (float)4.5;
+        item1.name = "스즈메의 문단속";
+        item1.writer = "신카이 마코토";
+        item1.setStartingDate(2023, 4, 1);
+        item1.bookPage = 330;
+        item1.readPage = 250;
+        item1.isbn13 = "9791169791977";
+        item1.pub = "대원씨아이(단행본)";
+        adapter.setArrayData(item1);
+
+        BookItemRecord item2 = new BookItemRecord();
+        item2.image = R.drawable.img_7;
+        item2.rating = (float)4;
+        item2.name = "구의 증명";
+        item2.writer = "최진영";
+        item2.setStartingDate(2023, 4, 25);
+        item2.bookPage = 180;
+        item2.readPage = 77;
+        item2.isbn13 = "9788956608556";
+        item2.pub = "은행나무";
+        adapter.setArrayData(item2);
 
         //커스텀 이벤트 리스너 객체를 생성하여 어댑터에 전달
         adapter.setOnItemClickListener(new AddBookFragAdapter.OnItemClickListener()

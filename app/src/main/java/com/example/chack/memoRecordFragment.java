@@ -77,15 +77,49 @@ public class memoRecordFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(ct, RecyclerView.VERTICAL, false));
 
         //리사이클러 뷰에 객체 10개 생성해 줌 (추후 서재에 있는 책 목록으로 객체 생성 하게끔 수정 필요)
+        /*
         for(int i = 0; i < 10; i++)
         {
             MemoItemRecord item = new MemoItemRecord();
-            item.memo = "모르는 건 죄가 아닌데 기다리지 못하는 건 죄가 되기도 한다고!";
+            item.memo = "모르는 건 죄가 아닌데 기다리지 못하는 건 죄가 되기도 한다고";
             item.page = 23;
             item.bookName = "구의 증명";
 
             adapter.setArrayData(item);
         }
+         */
+
+        MemoItemRecord item = new MemoItemRecord();
+        item.memo = "모르는 건 죄가 아닌데 기다리지 못하는 건 죄가 되기도 한다고";
+        item.page = 23;
+        item.bookName = "구의 증명";
+        adapter.setArrayData(item);
+
+        MemoItemRecord item4 = new MemoItemRecord();
+        item4.memo = "어떤 아픈 기억은 지워져야만 살 수 있기도 하고, 어떤 기억은 아프지만 그 불행을 이겨내는 힘으로 살기도 하지. 슬픔이 때론 살아가는 힘이 되기도 해.";
+        item4.page = 55;
+        item4.bookName = "메리골드 마음 세탁소";
+        adapter.setArrayData(item4);
+
+        MemoItemRecord item2 = new MemoItemRecord();
+        item2.memo = "가시적 결과를 외부에서 찾지 말고 내부에서 찾아라. 당신 자신의 노력을 인정해 주고 칭찬하여야 할 주체는 타인이나 직장이나 사회가 아니다.";
+        item2.page = 66;
+        item2.bookName = "세이노의 가르침";
+        adapter.setArrayData(item2);
+
+        MemoItemRecord item3 = new MemoItemRecord();
+        item3.memo = "노력한 만큼의 대가는 반드시 주어진다는 것을 믿어라. 문제는 그 시기가 당신이 생각하는 시간보다 더 미래에 있다는 점이다.";
+        item3.page = 67;
+        item3.bookName = "세이노의 가르침";
+        adapter.setArrayData(item3);
+
+        MemoItemRecord item5 = new MemoItemRecord();
+        item5.memo = "마음을 치유하고 싶다며 스스로를 열어 보이는 이들은 꽤나 용감한 사람들이다. 대부분의 사람들은 속이 곪아 있다. 곪아 있는지도, 아픈지도 인지하지 못하고 살아가는 이들이 대부분이다. 가장 아픈 상처 한두 개쯤은 치유해주어야 살 만해진다는 것도 모르면서 살아간다.";
+        item5.page = 110;
+        item5.bookName = "메리골드 마음 세탁소";
+        adapter.setArrayData(item5);
+
+
 
         recyclerView.setAdapter(adapter); //리사이클러 뷰에 어댑터 설정
 

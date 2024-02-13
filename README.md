@@ -14,7 +14,7 @@
 SDK : Android Studio (2021.3.1)  
 Language : Java (9.0.4)  
 DB : Firebase  
-Open API : <a href="https://blog.aladin.co.kr/openapi/popup/6695306">알라딘 도서 API</a>, <a href="https://developers.google.com/ml-kit/vision/barcode-scanning?hl=ko">ML KIT API (바코드)</a>, <a href="https://postcode.map.daum.net/guide">카카오(다음) 주소 API</a>, <a href="https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api">카카오 로그인 API</a>
+API : <a href="https://blog.aladin.co.kr/openapi/popup/6695306">알라딘 도서 API</a>, <a href="https://developers.google.com/ml-kit/vision/barcode-scanning?hl=ko">ML KIT API (바코드)</a>, <a href="https://postcode.map.daum.net/guide">카카오(다음) 주소 API</a>, <a href="https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api">카카오 로그인 API</a>
 <br>
 
 ------
